@@ -3,6 +3,8 @@
 use App\Livewire\Audits\AuditIndex;
 use App\Livewire\Audits\CreateAudit;
 use App\Livewire\Audits\RunAudit;
+use App\Livewire\Audits\ShowAreaResults;
+use App\Livewire\Audits\ShowResults;
 use App\Models\AssessmentAnswer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +18,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         return Storage::disk('local')->download($answer->evidence_path);
     })->name('audits.evidence');
+
+    Route::livewire('audits/{assessment}/results', ShowResults::class)->name('audits.results');
+    Route::livewire('audits/{assessment}/areas/{area}', ShowAreaResults::class)->name('audits.results.area');
 
     Route::livewire('audits/{assessment}', RunAudit::class)->name('audits.run');
 });

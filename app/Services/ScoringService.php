@@ -18,10 +18,34 @@ class ScoringService
      */
     public function workbookScore(Assessment $assessment, Workbook $workbook): float
     {
+        $applicable = $this->criterionBreakdown($assessment, $workbook)->where('applicable', true);
+
+        $applicableMaxPoints = (float) $applicable->sum('max');
+
+        if ($applicableMaxPoints <= 0.0) {
+            return 0.0;
+        }
+
+        $earnedPoints = (float) $applicable->sum('earned');
+
+        return round(($earnedPoints / $applicableMaxPoints) * 100, 2);
+    }
+
+    /**
+     * Per-criterion detail for a workbook: whether each criterion is applicable
+     * (not N/A, not gated out by a relevance-gate answered negatively) and its
+     * earned/max points. Powers workbookScore() as well as the results
+     * dashboard and area drill-down views, which need row-level detail rather
+     * than just the aggregate score.
+     *
+     * @return Collection<int, array{criterion: Criterion, answer: ?AssessmentAnswer, applicable: bool, earned: float, max: float}>
+     */
+    public function criterionBreakdown(Assessment $assessment, Workbook $workbook): Collection
+    {
         $criteria = $workbook->criteria()->with('options')->get();
 
         if ($criteria->isEmpty()) {
-            return 0.0;
+            return collect();
         }
 
         $answers = $assessment->answers()
@@ -31,39 +55,29 @@ class ScoringService
 
         $gatedGroups = $this->resolveGatedGroups($criteria, $answers);
 
-        $earnedPoints = 0.0;
-        $applicableMaxPoints = 0.0;
+        return $criteria->map(function (Criterion $criterion) use ($answers, $gatedGroups) {
+            $answer = $answers->get($criterion->id);
 
-        foreach ($criteria as $criterion) {
             $isGatedOut = ! $criterion->is_relevance_gate
                 && in_array($criterion->group_label, $gatedGroups, true);
 
-            if ($isGatedOut) {
-                continue;
-            }
+            $applicable = ! $isGatedOut && ! ($answer?->is_na ?? false);
 
-            $answer = $answers->get($criterion->id);
+            $earned = 0.0;
 
-            if ($answer && $answer->is_na) {
-                continue;
-            }
-
-            $applicableMaxPoints += (float) $criterion->options->max('points');
-
-            if ($answer && $answer->selected_option_id) {
+            if ($applicable && $answer?->selected_option_id) {
                 $selected = $criterion->options->firstWhere('id', $answer->selected_option_id);
-                $earnedPoints += (float) $selected->points;
+                $earned = (float) $selected->points;
             }
 
-            // Criteria without an answer yet (in-progress assessment) contribute
-            // 0 earned points but still count toward the applicable maximum.
-        }
-
-        if ($applicableMaxPoints <= 0.0) {
-            return 0.0;
-        }
-
-        return round(($earnedPoints / $applicableMaxPoints) * 100, 2);
+            return [
+                'criterion' => $criterion,
+                'answer' => $answer,
+                'applicable' => $applicable,
+                'earned' => $earned,
+                'max' => (float) $criterion->options->max('points'),
+            ];
+        });
     }
 
     /**
@@ -134,5 +148,45 @@ class ScoringService
         $sum = $areas->sum(fn (Area $area) => $this->areaScore($assessment, $area));
 
         return round($sum / $areas->count(), 2);
+    }
+
+    /**
+     * The 5 status tiers named in the build plan (Kritično/Reaktivno/
+     * Funkcionalno/Upravljano/Napredno), mapped to a 0-100 score. The
+     * methodology doesn't define numeric cutoffs for these yet, so this
+     * splits the range evenly (20 points per tier) — the same "start even,
+     * calibrate later from real audits" approach already used for weights.
+     *
+     * @return array{label: string, description: string, color: string}
+     */
+    public function scoreStatus(float $score): array
+    {
+        return match (true) {
+            $score < 20 => [
+                'label' => 'Kritično',
+                'description' => 'Digitalni nastup ima ozbiljne nedostatke koji direktno štete poslovanju. Hitno su potrebne intervencije na osnovnim elementima.',
+                'color' => '#dc2626',
+            ],
+            $score < 40 => [
+                'label' => 'Reaktivno',
+                'description' => 'Osnove postoje, ali su nekonzistentne i uglavnom reaktivne umjesto planske. Veliki prostor za unapređenje u većini oblasti.',
+                'color' => '#ea580c',
+            ],
+            $score < 60 => [
+                'label' => 'Funkcionalno',
+                'description' => 'Digitalni nastup pokriva osnovne potrebe, ali bez punog iskorištavanja potencijala. Postoje jasne prilike za rast.',
+                'color' => '#d97706',
+            ],
+            $score < 80 => [
+                'label' => 'Upravljano',
+                'description' => 'Imate solidnu i uglavnom dobro vođenu digitalnu osnovu. Preostale prilike mogu donijeti dodatni rast i efikasnost.',
+                'color' => '#2563eb',
+            ],
+            default => [
+                'label' => 'Napredno',
+                'description' => 'Digitalni nastup je zreo i dobro upravljan u većini oblasti. Fokus je na finom podešavanju i održavanju prednosti.',
+                'color' => '#16a34a',
+            ],
+        };
     }
 }

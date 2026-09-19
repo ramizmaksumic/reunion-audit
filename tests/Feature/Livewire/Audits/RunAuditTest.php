@@ -6,6 +6,7 @@ use App\Models\Criterion;
 use App\Models\CriterionOption;
 use App\Models\User;
 use App\Models\Workbook;
+use App\Services\ScoringService;
 use Livewire\Livewire;
 
 function makeGroupOfCriteria(Workbook $workbook, string $groupLabel, int $siblingCount = 2): array
@@ -110,9 +111,11 @@ test('finishing the audit marks it completed and computes the overall score', fu
     Livewire::test(RunAudit::class, ['assessment' => $assessment])
         ->set("selectedOptions.{$criterion->id}", $optionYes->id)
         ->call('finishAudit')
-        ->assertSet('overallScore', fn ($score) => $score !== null);
+        ->assertRedirect(route('audits.results', $assessment));
 
     $assessment->refresh();
     expect($assessment->status)->toBe('completed');
     expect($assessment->completed_at)->not->toBeNull();
+
+    expect(app(ScoringService::class)->overallScore($assessment))->toBeFloat();
 });

@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Audits;
 
-use App\Models\Area;
 use App\Models\Assessment;
 use App\Models\AssessmentAnswer;
 use App\Models\Criterion;
@@ -26,8 +25,6 @@ use Livewire\WithFileUploads;
  * @property-read Collection<string, Collection<int, Criterion>> $criteriaGroups
  * @property-read array<int, string> $gatedGroupLabels
  * @property-read array<int, array{answered: int, total: int}> $workbookProgress
- * @property-read float|null $overallScore
- * @property-read Collection<int, array{area: Area, score: float}> $areaScores
  */
 #[Title('Audit u toku')]
 class RunAudit extends Component
@@ -165,32 +162,6 @@ class RunAudit extends Component
         return $progress;
     }
 
-    #[Computed]
-    public function overallScore(): ?float
-    {
-        if ($this->assessment->status !== 'completed') {
-            return null;
-        }
-
-        return app(ScoringService::class)->overallScore($this->assessment);
-    }
-
-    /**
-     * @return Collection<int, array{area: Area, score: float}>
-     */
-    #[Computed]
-    public function areaScores(): Collection
-    {
-        if ($this->assessment->status !== 'completed') {
-            return collect();
-        }
-
-        $scoring = app(ScoringService::class);
-
-        return Area::query()->orderBy('sort_order')->get()
-            ->map(fn (Area $area) => ['area' => $area, 'score' => $scoring->areaScore($this->assessment, $area)]);
-    }
-
     public function selectWorkbook(string $workbookKey): void
     {
         $this->workbook = $workbookKey;
@@ -267,9 +238,9 @@ class RunAudit extends Component
             'completed_at' => now(),
         ]);
 
-        unset($this->overallScore, $this->areaScores);
-
         Flux::toast(variant: 'success', text: 'Audit je završen. Rezultati su izračunati.');
+
+        $this->redirect(route('audits.results', $this->assessment), navigate: true);
     }
 
     private function persistAnswer(int $criterionId, int $optionId): void

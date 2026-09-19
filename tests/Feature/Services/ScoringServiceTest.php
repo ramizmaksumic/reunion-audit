@@ -147,3 +147,42 @@ test('overallScore averages all areas evenly', function () {
 
     expect((new ScoringService)->overallScore($assessment))->toBe(50.0);
 });
+
+test('scoreStatus maps scores to the 5 methodology tiers', function () {
+    $scoring = new ScoringService;
+
+    expect($scoring->scoreStatus(0.0)['label'])->toBe('Kritično');
+    expect($scoring->scoreStatus(19.9)['label'])->toBe('Kritično');
+    expect($scoring->scoreStatus(20.0)['label'])->toBe('Reaktivno');
+    expect($scoring->scoreStatus(39.9)['label'])->toBe('Reaktivno');
+    expect($scoring->scoreStatus(40.0)['label'])->toBe('Funkcionalno');
+    expect($scoring->scoreStatus(59.9)['label'])->toBe('Funkcionalno');
+    expect($scoring->scoreStatus(60.0)['label'])->toBe('Upravljano');
+    expect($scoring->scoreStatus(79.9)['label'])->toBe('Upravljano');
+    expect($scoring->scoreStatus(80.0)['label'])->toBe('Napredno');
+    expect($scoring->scoreStatus(100.0)['label'])->toBe('Napredno');
+});
+
+test('criterionBreakdown reports per-criterion earned/max and applicability', function () {
+    $workbook = Workbook::factory()->create();
+    $assessment = Assessment::factory()->create();
+
+    $answered = makeBinaryCriterion($workbook, 'I. Grupa');
+    answerCriterion($assessment, $answered, 'Da');
+
+    $unanswered = makeBinaryCriterion($workbook, 'I. Grupa');
+
+    $na = makeBinaryCriterion($workbook, 'I. Grupa');
+    $assessment->answers()->create(['criterion_id' => $na->id, 'is_na' => true]);
+
+    $breakdown = (new ScoringService)->criterionBreakdown($assessment, $workbook)->keyBy('criterion.id');
+
+    expect($breakdown[$answered->id]['applicable'])->toBeTrue();
+    expect($breakdown[$answered->id]['earned'])->toBe(10.0);
+    expect($breakdown[$answered->id]['max'])->toBe(10.0);
+
+    expect($breakdown[$unanswered->id]['applicable'])->toBeTrue();
+    expect($breakdown[$unanswered->id]['earned'])->toBe(0.0);
+
+    expect($breakdown[$na->id]['applicable'])->toBeFalse();
+});

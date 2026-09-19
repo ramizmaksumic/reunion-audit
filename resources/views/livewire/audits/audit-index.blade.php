@@ -19,7 +19,7 @@
             @endphp
 
             <a
-                href="{{ route('audits.run', $assessment) }}"
+                href="{{ $assessment->status === 'completed' ? route('audits.results', $assessment) : route('audits.run', $assessment) }}"
                 wire:navigate
                 class="block rounded-lg border border-zinc-200 p-4 transition hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/50"
             >

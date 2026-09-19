@@ -55,37 +55,28 @@
 
             <flux:separator class="my-4" />
 
-            @if ($assessment->status !== 'completed')
-                <flux:button wire:click="finishAudit" variant="primary" class="w-full">
-                    Završi audit
+            <div class="space-y-2">
+                <flux:button variant="ghost" class="w-full" icon="chart-bar" :href="route('audits.results', $assessment)" wire:navigate>
+                    Pogledaj rezultate
                 </flux:button>
-            @else
-                <flux:button wire:click="finishAudit" variant="ghost" class="w-full">
-                    Ponovo izračunaj rezultate
-                </flux:button>
-            @endif
+
+                @if ($assessment->status !== 'completed')
+                    <flux:button wire:click="finishAudit" variant="primary" class="w-full">
+                        Završi audit
+                    </flux:button>
+                @endif
+            </div>
         </div>
     </aside>
 
     <div class="min-w-0 flex-1 space-y-6">
         @if ($assessment->status === 'completed')
-            <div class="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-900 dark:bg-green-950/30">
-                <flux:heading>Rezultati audita</flux:heading>
-
-                <div class="mt-2 flex items-baseline gap-2">
-                    <span class="text-3xl font-bold">{{ $this->overallScore }}</span>
-                    <span class="text-zinc-500">/ 100 — Reunion Digital Score</span>
-                </div>
-
-                <div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                    @foreach ($this->areaScores as $entry)
-                        <div class="rounded-md border border-zinc-200 bg-white p-2 text-sm dark:border-zinc-700 dark:bg-zinc-900">
-                            <div class="text-zinc-500">{{ $entry['area']->name }}</div>
-                            <div class="text-lg font-semibold">{{ $entry['score'] }}</div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
+            <flux:callout icon="check-circle" color="green">
+                <flux:callout.heading>Audit je završen</flux:callout.heading>
+                <flux:callout.text>
+                    Rezultati su izračunati. <flux:link :href="route('audits.results', $assessment)" wire:navigate>Pogledaj kompletan izvještaj →</flux:link>
+                </flux:callout.text>
+            </flux:callout>
         @endif
 
         @if ($this->currentWorkbook)
