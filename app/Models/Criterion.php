@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Models;
+
+use Database\Factories\CriterionFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+#[Fillable([
+    'workbook_id',
+    'external_id',
+    'group_label',
+    'text',
+    'answer_type',
+    'priority',
+    'evidence_source',
+    'self_service_eligible',
+    'is_relevance_gate',
+    'sort_order',
+])]
+class Criterion extends Model
+{
+    /** @use HasFactory<CriterionFactory> */
+    use HasFactory;
+
+    protected function casts(): array
+    {
+        return [
+            'self_service_eligible' => 'boolean',
+            'is_relevance_gate' => 'boolean',
+        ];
+    }
+
+    /**
+     * @return BelongsTo<Workbook, $this>
+     */
+    public function workbook(): BelongsTo
+    {
+        return $this->belongsTo(Workbook::class);
+    }
+
+    /**
+     * @return HasMany<CriterionOption, $this>
+     */
+    public function options(): HasMany
+    {
+        return $this->hasMany(CriterionOption::class)->orderBy('sort_order');
+    }
+
+    /**
+     * @return HasMany<AssessmentAnswer, $this>
+     */
+    public function answers(): HasMany
+    {
+        return $this->hasMany(AssessmentAnswer::class);
+    }
+}
