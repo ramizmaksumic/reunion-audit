@@ -16,6 +16,15 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
+
+                <flux:sidebar.group heading="Auditi" class="grid">
+                    <flux:sidebar.item icon="clipboard-document-list" :href="route('audits.index')" :current="request()->routeIs('audits.index')" wire:navigate>
+                        Svi auditi
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="plus-circle" :href="route('audits.create')" :current="request()->routeIs('audits.create')" wire:navigate>
+                        Novi audit
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
             </flux:sidebar.nav>
 
             <flux:spacer />

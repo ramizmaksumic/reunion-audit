@@ -57,4 +57,16 @@ class Criterion extends Model
     {
         return $this->hasMany(AssessmentAnswer::class);
     }
+
+    /**
+     * Whether $option is this criterion's lowest-point ("negative") answer.
+     * For a relevance-gate criterion, picking this option means the channel/
+     * group it gates is not relevant and its sibling criteria become N/A.
+     */
+    public function isNegativeOption(CriterionOption $option): bool
+    {
+        $minPoints = $this->options->min('points');
+
+        return $minPoints !== null && (float) $option->points <= (float) $minPoints;
+    }
 }

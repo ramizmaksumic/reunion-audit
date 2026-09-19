@@ -68,13 +68,14 @@ class ScoringService
 
     /**
      * Group labels within this workbook that are N/A because their relevance-gate
-     * criterion was answered with its lowest-point ("negative") option.
+     * criterion was answered with its lowest-point ("negative") option. Also used
+     * by the audit wizard to grey out and auto-skip a gated group's criteria.
      *
      * @param  Collection<int, Criterion>  $criteria
      * @param  Collection<int, AssessmentAnswer>  $answers  Keyed by criterion_id.
      * @return array<int, string>
      */
-    private function resolveGatedGroups(Collection $criteria, Collection $answers): array
+    public function resolveGatedGroups(Collection $criteria, Collection $answers): array
     {
         $gatedGroups = [];
 
@@ -87,13 +88,7 @@ class ScoringService
 
             $selected = $gate->options->firstWhere('id', $answer->selected_option_id);
 
-            if (! $selected) {
-                continue;
-            }
-
-            $minPoints = (float) $gate->options->min('points');
-
-            if ((float) $selected->points <= $minPoints) {
+            if ($selected && $gate->isNegativeOption($selected)) {
                 $gatedGroups[] = $gate->group_label;
             }
         }

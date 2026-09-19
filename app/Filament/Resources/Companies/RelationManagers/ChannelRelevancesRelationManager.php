@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Companies\RelationManagers;
 
+use App\Models\CompanyChannelRelevance;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
@@ -19,41 +20,17 @@ class ChannelRelevancesRelationManager extends RelationManager
 
     protected static ?string $title = 'Relevantnost digitalnih kanala';
 
-    /**
-     * "Očekivani digitalni kanali" iz Profil kompanije upitnika
-     * (docs/rds-methodology.md, sekcija 9).
-     *
-     * @var array<string, string>
-     */
-    private const CHANNELS = [
-        'web_stranica' => 'Web stranica',
-        'webshop' => 'Webshop',
-        'google_business_profil' => 'Google Business profil',
-        'facebook' => 'Facebook',
-        'instagram' => 'Instagram',
-        'linkedin' => 'LinkedIn',
-        'youtube' => 'YouTube',
-        'tiktok' => 'TikTok',
-        'specijalizovane_platforme' => 'Booking / Airbnb / TripAdvisor ili druge specijalizovane platforme',
-        'email_marketing' => 'Email marketing',
-        'crm_sistem' => 'CRM sistem',
-    ];
-
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
                 Select::make('channel_key')
                     ->label('Kanal')
-                    ->options(self::CHANNELS)
+                    ->options(CompanyChannelRelevance::CHANNELS)
                     ->required(),
                 Select::make('relevance')
                     ->label('Relevantnost')
-                    ->options([
-                        'critical' => 'Kritičan',
-                        'recommended' => 'Preporučen',
-                        'not_relevant' => 'Nije relevantan',
-                    ])
+                    ->options(CompanyChannelRelevance::RELEVANCE_LEVELS)
                     ->required(),
             ]);
     }
@@ -65,16 +42,11 @@ class ChannelRelevancesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('channel_key')
                     ->label('Kanal')
-                    ->formatStateUsing(fn (string $state): string => self::CHANNELS[$state] ?? $state),
+                    ->formatStateUsing(fn (string $state): string => CompanyChannelRelevance::CHANNELS[$state] ?? $state),
                 TextColumn::make('relevance')
                     ->label('Relevantnost')
                     ->badge()
-                    ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'critical' => 'Kritičan',
-                        'recommended' => 'Preporučen',
-                        'not_relevant' => 'Nije relevantan',
-                        default => $state,
-                    })
+                    ->formatStateUsing(fn (string $state): string => CompanyChannelRelevance::RELEVANCE_LEVELS[$state] ?? $state)
                     ->color(fn (string $state): string => match ($state) {
                         'critical' => 'danger',
                         'recommended' => 'warning',
