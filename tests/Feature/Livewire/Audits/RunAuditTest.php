@@ -27,6 +27,45 @@ function makeGroupOfCriteria(Workbook $workbook, string $groupLabel, int $siblin
     return [$gate, $gateYes, $gateNo, $siblings];
 }
 
+test('mount pre-populates every criterion key, even on a brand new assessment with zero answers', function () {
+    $this->actingAs(User::factory()->create());
+
+    $workbook = Workbook::factory()->create();
+    $criterion = Criterion::factory()->for($workbook)->create(['group_label' => 'Grupa']);
+    CriterionOption::factory()->for($criterion)->create(['label' => 'Da', 'points' => 10]);
+    CriterionOption::factory()->for($criterion)->create(['label' => 'Ne', 'points' => 0]);
+
+    // A completely fresh assessment: no assessment_answers rows exist at all.
+    $assessment = Assessment::factory()->create(['status' => 'draft']);
+
+    $component = Livewire::test(RunAudit::class, ['assessment' => $assessment]);
+
+    // Every criterion's key must exist up front (as null/false/''), not just
+    // answered ones — otherwise the very first click on a never-touched
+    // criterion sends Livewire a bare property update with a null $key,
+    // which crashed updatedSelectedOptions() with a TypeError in production.
+    expect($component->get('selectedOptions'))->toHaveKey((string) $criterion->id);
+    expect($component->get('selectedOptions')[$criterion->id])->toBeNull();
+    expect($component->get('naFlags')[$criterion->id])->toBeFalse();
+});
+
+test('the updated hooks tolerate a bare (non-nested) property update instead of crashing', function () {
+    $this->actingAs(User::factory()->create());
+
+    $assessment = Assessment::factory()->create(['status' => 'draft']);
+
+    // Replacing the whole array property (path "selectedOptions", no dotted
+    // key) is exactly what a real browser click sent when a criterion's key
+    // wasn't pre-populated — it reaches updatedSelectedOptions() with a null
+    // $key and previously crashed with a TypeError.
+    Livewire::test(RunAudit::class, ['assessment' => $assessment])
+        ->set('selectedOptions', ['1' => 5])
+        ->assertOk();
+
+    $assessment->refresh();
+    expect($assessment->status)->toBe('draft'); // nothing persisted, nothing crashed
+});
+
 test('answering a criterion auto-saves and flips the assessment to in_progress', function () {
     $this->actingAs(User::factory()->create());
 
@@ -88,14 +127,55 @@ test('flipping the gate back to positive restores untouched auto-N/A siblings bu
     // Auditor changes their mind: the channel *is* relevant after all.
     $component->set("selectedOptions.{$gate->id}", $gateYes->id);
 
+    // Restored to genuinely unanswered: the row is deleted outright, not left
+    // behind as a blank one (which would otherwise still count as "answered"
+    // in the progress indicator).
     $untouchedAnswer = $assessment->answers()->where('criterion_id', $untouchedSibling->id)->first();
-    expect($untouchedAnswer->is_na)->toBeFalse();
-    expect($untouchedAnswer->na_reason)->toBeNull();
-    expect($untouchedAnswer->selected_option_id)->toBeNull();
+    expect($untouchedAnswer)->toBeNull();
 
     $overriddenAnswer = $assessment->answers()->where('criterion_id', $overriddenSibling->id)->first();
     expect($overriddenAnswer->is_na)->toBeFalse();
     expect($overriddenAnswer->selected_option_id)->toBe($overriddenOption->id);
+});
+
+test('the progress counter does not over-count criteria restored by a gate flip-back', function () {
+    $this->actingAs(User::factory()->create());
+
+    $workbook = Workbook::factory()->create();
+    [$gate, $gateYes, $gateNo, $siblings] = makeGroupOfCriteria($workbook, 'SEO', siblingCount: 2);
+
+    $assessment = Assessment::factory()->create(['status' => 'draft']);
+
+    $component = Livewire::test(RunAudit::class, ['assessment' => $assessment])
+        ->set("selectedOptions.{$gate->id}", $gateNo->id);
+
+    // Gate + 2 auto-N/A siblings = all 3 criteria in this group "answered".
+    expect($component->get('workbookProgress')[$workbook->id]['answered'])->toBe(3);
+
+    // Auditor changes their mind: only the gate itself remains answered.
+    $component->set("selectedOptions.{$gate->id}", $gateYes->id);
+
+    expect($component->get('workbookProgress')[$workbook->id]['answered'])->toBe(1);
+});
+
+test('unchecking N/A deletes the blank row instead of leaving it counted as answered', function () {
+    $this->actingAs(User::factory()->create());
+
+    $workbook = Workbook::factory()->create();
+    $criterion = Criterion::factory()->for($workbook)->create(['group_label' => 'Grupa']);
+    CriterionOption::factory()->for($criterion)->create(['label' => 'Da', 'points' => 10]);
+    CriterionOption::factory()->for($criterion)->create(['label' => 'Ne', 'points' => 0]);
+
+    $assessment = Assessment::factory()->create(['status' => 'draft']);
+
+    $component = Livewire::test(RunAudit::class, ['assessment' => $assessment])
+        ->set("naFlags.{$criterion->id}", true);
+
+    expect($assessment->answers()->where('criterion_id', $criterion->id)->exists())->toBeTrue();
+
+    $component->set("naFlags.{$criterion->id}", false);
+
+    expect($assessment->answers()->where('criterion_id', $criterion->id)->exists())->toBeFalse();
 });
 
 test('finishing the audit marks it completed and computes the overall score', function () {

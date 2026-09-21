@@ -58,11 +58,25 @@ class RunAudit extends Component
         $this->assessment = $assessment;
         $this->workbook ??= $this->workbooks->first()?->key;
 
-        foreach ($this->answers as $criterionId => $answer) {
-            $this->selectedOptions[$criterionId] = $answer->selected_option_id;
-            $this->naFlags[$criterionId] = $answer->is_na;
-            $this->naReasonDrafts[$criterionId] = (string) $answer->na_reason;
-            $this->noteDrafts[$criterionId] = (string) $answer->notes;
+        // Every criterion's key must exist in these arrays from the very first
+        // render, even when unanswered (null/false/''). Otherwise Livewire's
+        // client-side JS has no known path for "selectedOptions.123" the first
+        // time that criterion is touched, and falls back to diffing/sending the
+        // whole array with a null $key — which crashes the updatedX() hooks
+        // below (they expect a per-criterion key). See: bug reported after
+        // clicking an option on a fresh, never-answered assessment.
+        $answers = $this->answers;
+
+        foreach ($this->workbooks as $workbook) {
+            foreach ($workbook->criteria as $criterion) {
+                $answer = $answers->get($criterion->id);
+
+                $this->selectedOptions[$criterion->id] = $answer?->selected_option_id;
+                $this->naFlags[$criterion->id] = $answer?->is_na ?? false;
+                $this->naReasonDrafts[$criterion->id] = (string) $answer?->na_reason;
+                $this->noteDrafts[$criterion->id] = (string) $answer?->notes;
+                $this->evidenceUploads[$criterion->id] = null;
+            }
         }
     }
 
@@ -167,22 +181,30 @@ class RunAudit extends Component
         $this->workbook = $workbookKey;
     }
 
-    public function updatedSelectedOptions(mixed $value, string $key): void
+    public function updatedSelectedOptions(mixed $value, ?string $key): void
     {
-        if ($value === null || $value === '') {
+        if ($key === null || $value === null || $value === '') {
             return;
         }
 
         $this->persistAnswer((int) $key, (int) $value);
     }
 
-    public function updatedNaFlags(mixed $value, string $key): void
+    public function updatedNaFlags(mixed $value, ?string $key): void
     {
+        if ($key === null) {
+            return;
+        }
+
         $this->persistNaToggle((int) $key, (bool) $value);
     }
 
-    public function updatedNaReasonDrafts(mixed $value, string $key): void
+    public function updatedNaReasonDrafts(mixed $value, ?string $key): void
     {
+        if ($key === null) {
+            return;
+        }
+
         $criterionId = (int) $key;
         $reason = trim((string) $value) ?: null;
 
@@ -196,8 +218,12 @@ class RunAudit extends Component
         unset($this->answers);
     }
 
-    public function updatedNoteDrafts(mixed $value, string $key): void
+    public function updatedNoteDrafts(mixed $value, ?string $key): void
     {
+        if ($key === null) {
+            return;
+        }
+
         $criterionId = (int) $key;
 
         AssessmentAnswer::updateOrCreate(
@@ -209,8 +235,12 @@ class RunAudit extends Component
         unset($this->answers);
     }
 
-    public function updatedEvidenceUploads(TemporaryUploadedFile $value, string $key): void
+    public function updatedEvidenceUploads(TemporaryUploadedFile $value, ?string $key): void
     {
+        if ($key === null) {
+            return;
+        }
+
         $criterionId = (int) $key;
 
         $this->validate([
@@ -267,16 +297,21 @@ class RunAudit extends Component
 
     private function persistNaToggle(int $criterionId, bool $isNa): void
     {
-        AssessmentAnswer::updateOrCreate(
-            ['assessment_id' => $this->assessment->id, 'criterion_id' => $criterionId],
-            $isNa
-                ? ['is_na' => true, 'selected_option_id' => null]
-                : ['is_na' => false, 'na_reason' => null],
-        );
-
         if ($isNa) {
+            AssessmentAnswer::updateOrCreate(
+                ['assessment_id' => $this->assessment->id, 'criterion_id' => $criterionId],
+                ['is_na' => true, 'selected_option_id' => null],
+            );
+
             $this->selectedOptions[$criterionId] = null;
         } else {
+            // Back to genuinely unanswered — delete rather than update to a
+            // blank row, otherwise it would still count as "answered" in the
+            // progress indicator and elsewhere $this->answers is used.
+            AssessmentAnswer::where('assessment_id', $this->assessment->id)
+                ->where('criterion_id', $criterionId)
+                ->delete();
+
             $this->naReasonDrafts[$criterionId] = '';
         }
 
@@ -319,9 +354,12 @@ class RunAudit extends Component
             ->where('na_reason', self::AUTO_NA_REASON)
             ->pluck('criterion_id');
 
+        // Delete rather than update to a blank row — a restored criterion is
+        // genuinely unanswered again, and a leftover blank row would still
+        // count as "answered" in the progress indicator and scoring inputs.
         AssessmentAnswer::where('assessment_id', $this->assessment->id)
             ->whereIn('criterion_id', $restoredIds)
-            ->update(['is_na' => false, 'na_reason' => null]);
+            ->delete();
 
         foreach ($restoredIds as $restoredId) {
             $this->naFlags[$restoredId] = false;
