@@ -25,6 +25,25 @@ class Company extends Model
     /** @use HasFactory<CompanyFactory> */
     use HasFactory;
 
+    /**
+     * @var array<string, string>
+     */
+    public const B2B_OR_B2C_LABELS = [
+        'b2b' => 'B2B',
+        'b2c' => 'B2C',
+        'both' => 'Kombinovano',
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    public const MARKET_SCOPE_LABELS = [
+        'local' => 'Lokalno',
+        'regional' => 'Regionalno',
+        'national' => 'Nacionalno',
+        'international' => 'Međunarodno',
+    ];
+
     protected function casts(): array
     {
         return [
@@ -34,6 +53,23 @@ class Company extends Model
             'works_by_appointment' => 'boolean',
             'has_multiple_locations' => 'boolean',
         ];
+    }
+
+    /**
+     * Short labels for the "poslovni model" booleans that are true — used
+     * wherever the company profile is summarized (results dashboard, PDF).
+     *
+     * @return array<int, string>
+     */
+    public function profileTags(): array
+    {
+        return array_values(array_filter([
+            $this->has_physical_location ? 'Fizička lokacija' : null,
+            $this->sells_online ? 'Online prodaja' : null,
+            $this->provides_online_services ? 'Online usluge' : null,
+            $this->works_by_appointment ? 'Rad po terminima/rezervaciji' : null,
+            $this->has_multiple_locations ? 'Više poslovnica' : null,
+        ]));
     }
 
     /**

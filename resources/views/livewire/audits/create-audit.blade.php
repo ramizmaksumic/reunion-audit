@@ -90,11 +90,11 @@
                     </div>
                     <div class="flex justify-between sm:justify-start sm:gap-2">
                         <dt class="text-zinc-500">B2B/B2C:</dt>
-                        <dd>{{ ['b2b' => 'B2B', 'b2c' => 'B2C', 'both' => 'Kombinovano'][$b2bOrB2c] ?? '—' }}</dd>
+                        <dd>{{ \App\Models\Company::B2B_OR_B2C_LABELS[$b2bOrB2c] ?? '—' }}</dd>
                     </div>
                     <div class="flex justify-between sm:justify-start sm:gap-2">
                         <dt class="text-zinc-500">Tržište:</dt>
-                        <dd>{{ ['local' => 'Lokalno', 'regional' => 'Regionalno', 'national' => 'Nacionalno', 'international' => 'Međunarodno'][$marketScope] ?? '—' }}</dd>
+                        <dd>{{ \App\Models\Company::MARKET_SCOPE_LABELS[$marketScope] ?? '—' }}</dd>
                     </div>
                     <div class="flex justify-between sm:justify-start sm:gap-2">
                         <dt class="text-zinc-500">Kanala označeno:</dt>

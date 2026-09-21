@@ -150,6 +150,9 @@
 
         .badge-kritican { background: #dc2626; }
         .badge-vazan { background: #d97706; }
+        .badge-critical { background: #dc2626; }
+        .badge-recommended { background: #d97706; }
+        .badge + .badge { margin-left: 3px; }
 
         .empty {
             color: #a1a1aa;
@@ -185,6 +188,45 @@
                 Preliminarni rezultati — audit u toku od {{ $assessment->started_at?->translatedFormat('d.m.Y.') ?? $assessment->created_at->translatedFormat('d.m.Y.') }}
             @endif
         </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Profil kompanije</div>
+
+        <table class="findings-table">
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr><td style="width: 90px; color: #71717a;">Djelatnost</td><td>{{ $assessment->company->industry ?: '—' }}</td></tr>
+                        <tr><td style="color: #71717a;">B2B/B2C</td><td>{{ \App\Models\Company::B2B_OR_B2C_LABELS[$assessment->company->b2b_or_b2c] ?? '—' }}</td></tr>
+                        <tr><td style="color: #71717a;">Tržište</td><td>{{ \App\Models\Company::MARKET_SCOPE_LABELS[$assessment->company->market_scope] ?? '—' }}</td></tr>
+                    </table>
+
+                    @if ($assessment->company->profileTags())
+                        <div style="margin-top: 6px;">
+                            @foreach ($assessment->company->profileTags() as $tag)
+                                <span class="badge">{{ $tag }}</span>
+                            @endforeach
+                        </div>
+                    @endif
+                </td>
+                <td>
+                    <h3 style="margin-bottom: 4px;">Relevantnost digitalnih kanala</h3>
+
+                    @if ($assessment->company->channelRelevances->isEmpty())
+                        <p class="empty">Nije popunjeno u profilu kompanije.</p>
+                    @else
+                        <div>
+                            @foreach ($assessment->company->channelRelevances as $channelRelevance)
+                                <span class="badge badge-{{ $channelRelevance->relevance }}">
+                                    {{ \App\Models\CompanyChannelRelevance::CHANNELS[$channelRelevance->channel_key] ?? $channelRelevance->channel_key }}
+                                </span>
+                            @endforeach
+                        </div>
+                    @endif
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="section">

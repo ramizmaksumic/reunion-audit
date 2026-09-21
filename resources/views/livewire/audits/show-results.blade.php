@@ -35,6 +35,63 @@
         </flux:callout>
     @endif
 
+    <div class="rounded-lg border border-zinc-200 p-6 dark:border-zinc-700">
+        <flux:heading class="text-xs tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+            Profil kompanije
+        </flux:heading>
+
+        <div class="mt-4 grid gap-6 lg:grid-cols-2">
+            <div>
+                <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-sm">
+                    <dt class="text-zinc-500">Djelatnost</dt>
+                    <dd>{{ $assessment->company->industry ?: '—' }}</dd>
+
+                    <dt class="text-zinc-500">B2B/B2C</dt>
+                    <dd>{{ \App\Models\Company::B2B_OR_B2C_LABELS[$assessment->company->b2b_or_b2c] ?? '—' }}</dd>
+
+                    <dt class="text-zinc-500">Tržište</dt>
+                    <dd>{{ \App\Models\Company::MARKET_SCOPE_LABELS[$assessment->company->market_scope] ?? '—' }}</dd>
+                </dl>
+
+                @if ($assessment->company->profileTags())
+                    <div class="mt-3 flex flex-wrap gap-1.5">
+                        @foreach ($assessment->company->profileTags() as $tag)
+                            <flux:badge size="sm">{{ $tag }}</flux:badge>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if ($assessment->company->business_model_notes)
+                    <flux:text class="mt-3 text-sm text-zinc-500">
+                        {{ $assessment->company->business_model_notes }}
+                    </flux:text>
+                @endif
+            </div>
+
+            <div>
+                <flux:text class="text-xs font-semibold tracking-wide text-zinc-500 uppercase">
+                    Relevantnost digitalnih kanala
+                </flux:text>
+
+                @if ($assessment->company->channelRelevances->isEmpty())
+                    <flux:text class="mt-2 text-sm text-zinc-400">Nije popunjeno u profilu kompanije.</flux:text>
+                @else
+                    <div class="mt-2 flex flex-wrap gap-1.5">
+                        @foreach ($assessment->company->channelRelevances as $channelRelevance)
+                            <flux:badge size="sm" :color="match ($channelRelevance->relevance) {
+                                'critical' => 'red',
+                                'recommended' => 'amber',
+                                default => null,
+                            }">
+                                {{ \App\Models\CompanyChannelRelevance::CHANNELS[$channelRelevance->channel_key] ?? $channelRelevance->channel_key }}
+                            </flux:badge>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+
     <div class="grid gap-6 lg:grid-cols-2">
         <div class="rounded-lg border border-zinc-200 p-6 dark:border-zinc-700">
             <flux:heading class="text-xs tracking-wide text-zinc-500 uppercase dark:text-zinc-400">

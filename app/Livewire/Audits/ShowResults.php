@@ -32,7 +32,7 @@ class ShowResults extends Component
 
     public function mount(Assessment $assessment): void
     {
-        $this->assessment = $assessment->load('company');
+        $this->assessment = $assessment->load(['company.channelRelevances']);
     }
 
     #[Computed]

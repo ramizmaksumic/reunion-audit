@@ -2,6 +2,7 @@
 
 use App\Livewire\Audits\ShowResults;
 use App\Models\Assessment;
+use App\Models\Company;
 use App\Models\Criterion;
 use App\Models\CriterionOption;
 use App\Models\User;
@@ -74,6 +75,29 @@ test('priorities are sorted by priority tier first, then by the largest point ga
         $kriticanSmallGap->id,
         $vazanSmallGap->id,
     ]);
+});
+
+test('the company profile from step 1 is shown on the results page', function () {
+    $this->actingAs(User::factory()->create());
+
+    $company = Company::factory()->create([
+        'industry' => 'Ugostiteljstvo',
+        'b2b_or_b2c' => 'b2c',
+        'market_scope' => 'local',
+        'sells_online' => true,
+        'has_physical_location' => true,
+    ]);
+    $company->channelRelevances()->create(['channel_key' => 'google_business_profil', 'relevance' => 'critical']);
+
+    $assessment = Assessment::factory()->for($company)->create();
+
+    Livewire::test(ShowResults::class, ['assessment' => $assessment])
+        ->assertSee('Ugostiteljstvo')
+        ->assertSee('B2C')
+        ->assertSee('Lokalno')
+        ->assertSee('Online prodaja')
+        ->assertSee('Fizička lokacija')
+        ->assertSee('Google Business profil');
 });
 
 test('the area detail page lists criteria with their answers and evidence', function () {

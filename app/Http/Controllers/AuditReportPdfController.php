@@ -15,7 +15,7 @@ class AuditReportPdfController extends Controller
 {
     public function __invoke(Assessment $assessment, ScoringService $scoring, ActionPlanService $actionPlan): Response
     {
-        $assessment->load('company');
+        $assessment->load(['company.channelRelevances']);
 
         $overallScore = $scoring->overallScore($assessment);
 
