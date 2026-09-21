@@ -4,9 +4,10 @@ namespace App\Livewire\Audits;
 
 use App\Models\Area;
 use App\Models\Assessment;
-use App\Models\AssessmentAnswer;
 use App\Models\Criterion;
 use App\Models\Workbook;
+use App\Services\ActionPlanService;
+use App\Services\AreaPresentation;
 use App\Services\ScoringService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -18,40 +19,13 @@ use Livewire\Component;
  * @property-read float $overallScore
  * @property-read array{label: string, description: string, color: string} $status
  * @property-read Collection<int, array{area: Area, score: float, color: string, description: string}> $areaScores
- * @property-read Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float}> $applicableCriteria
- * @property-read Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float}> $strengths
- * @property-read Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float, gap: float}> $priorities
+ * @property-read Collection<int, array{criterion: Criterion, workbook: Workbook, area: Area, earned: float, max: float, gap: float}> $strengths
+ * @property-read Collection<int, array{criterion: Criterion, workbook: Workbook, area: Area, earned: float, max: float, gap: float}> $priorities
  * @property-read float $growthPotential
  */
 #[Title('Rezultati audita')]
 class ShowResults extends Component
 {
-    /**
-     * Presentational metadata for each main area, keyed by Area::$key. Kept
-     * here rather than in the database since it's copy for this report, not
-     * methodology data the admin needs to edit (see docs/rds-methodology.md §2).
-     *
-     * @var array<string, array{color: string, description: string}>
-     */
-    private const AREA_PRESENTATION = [
-        'digitalna_prisutnost' => [
-            'color' => '#2563eb',
-            'description' => 'Kvalitet i profesionalnost digitalne osnove — web, Google Business, SEO, reputacija, brend i povjerenje.',
-        ],
-        'korisnicko_iskustvo' => [
-            'color' => '#d97706',
-            'description' => 'Koliko je digitalni nastup optimizovan da posjetioca pretvori u kupca ili upit.',
-        ],
-        'digitalna_efikasnost' => [
-            'color' => '#0d9488',
-            'description' => 'Koliko digitalni alati i procesi stvarno podržavaju svakodnevno poslovanje.',
-        ],
-        'marketing_i_rast' => [
-            'color' => '#7c3aed',
-            'description' => 'Da li se marketing vodi planski — od strategije, preko akvizicije, do mjerenja rezultata.',
-        ],
-    ];
-
     private const TOP_ITEMS_LIMIT = 3;
 
     public Assessment $assessment;
@@ -87,83 +61,44 @@ class ShowResults extends Component
         return Area::query()->orderBy('sort_order')->get()->map(fn (Area $area) => [
             'area' => $area,
             'score' => $scoring->areaScore($this->assessment, $area),
-            'color' => $this->areaColor($area->key),
-            'description' => $this->areaDescription($area->key),
+            'color' => AreaPresentation::color($area->key),
+            'description' => AreaPresentation::description($area->key),
         ]);
-    }
-
-    private function areaColor(string $areaKey): string
-    {
-        return self::AREA_PRESENTATION[$areaKey]['color'] ?? '#71717a';
-    }
-
-    private function areaDescription(string $areaKey): string
-    {
-        return self::AREA_PRESENTATION[$areaKey]['description'] ?? '';
-    }
-
-    /**
-     * Every applicable, answered criterion across the whole assessment — the
-     * raw material for the strengths/priorities preview below. The full
-     * weighted action-plan logic lands in Phase 6; this is a lightweight
-     * preview built on the same breakdown data.
-     *
-     * @return Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float}>
-     */
-    #[Computed]
-    public function applicableCriteria(): Collection
-    {
-        $scoring = app(ScoringService::class);
-
-        return collect(
-            Workbook::all()
-                ->flatMap(fn (Workbook $workbook) => $scoring->criterionBreakdown($this->assessment, $workbook))
-                ->filter(fn (array $row) => $row['applicable'] && $row['answer'] !== null)
-                ->values()
-                ->all()
-        );
     }
 
     /**
      * Top fully-earned, high-priority criteria.
      *
-     * @return Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float}>
+     * @return Collection<int, array{criterion: Criterion, workbook: Workbook, area: Area, earned: float, max: float, gap: float}>
      */
     #[Computed]
     public function strengths(): Collection
     {
-        return $this->applicableCriteria
-            ->filter(fn (array $row) => $row['max'] > 0 && $row['earned'] >= $row['max'])
-            ->filter(fn (array $row) => in_array($row['criterion']->priority, ['kritican', 'vazan'], true))
-            ->sortBy(fn (array $row) => $row['criterion']->priority === 'kritican' ? 0 : 1)
-            ->take(self::TOP_ITEMS_LIMIT)
-            ->values();
+        return app(ActionPlanService::class)->topStrengths($this->assessment, self::TOP_ITEMS_LIMIT);
     }
 
     /**
-     * Top criteria with the largest point gap, high-priority first.
+     * The most urgent action-plan items overall: 0–14 dana (kritičan) items
+     * first, then 31–90 dana (važan) ones, each sorted by biggest point loss.
      *
-     * @return Collection<int, array{criterion: Criterion, answer: AssessmentAnswer, applicable: bool, earned: float, max: float, gap: float}>
+     * @return Collection<int, array{criterion: Criterion, workbook: Workbook, area: Area, earned: float, max: float, gap: float}>
      */
     #[Computed]
     public function priorities(): Collection
     {
-        return $this->applicableCriteria
-            ->map(fn (array $row) => [...$row, 'gap' => $row['max'] - $row['earned']])
-            ->filter(fn (array $row) => $row['gap'] > 0)
-            ->filter(fn (array $row) => in_array($row['criterion']->priority, ['kritican', 'vazan'], true))
-            ->sortBy([
-                fn (array $a, array $b) => ($a['criterion']->priority === 'kritican' ? 0 : 1) <=> ($b['criterion']->priority === 'kritican' ? 0 : 1),
-                fn (array $a, array $b) => $b['gap'] <=> $a['gap'],
-            ])
-            ->take(self::TOP_ITEMS_LIMIT)
-            ->values();
+        $items = collect();
+
+        foreach (app(ActionPlanService::class)->generate($this->assessment) as $itemsInHorizon) {
+            $items = $items->concat($itemsInHorizon);
+        }
+
+        return $items->take(self::TOP_ITEMS_LIMIT)->values();
     }
 
     /**
      * Simple preview heuristic: how many points (0-100 scale) are left on
-     * the table overall. Phase 6's action plan replaces this with a proper
-     * weighted projection.
+     * the table overall. The full action plan (see ActionPlanService) is
+     * the actionable breakdown behind this number.
      */
     #[Computed]
     public function growthPotential(): float

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditReportPdfController;
 use App\Livewire\Audits\AuditIndex;
 use App\Livewire\Audits\CreateAudit;
 use App\Livewire\Audits\RunAudit;
@@ -21,6 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::livewire('audits/{assessment}/results', ShowResults::class)->name('audits.results');
     Route::livewire('audits/{assessment}/areas/{area}', ShowAreaResults::class)->name('audits.results.area');
+    Route::get('audits/{assessment}/results/pdf', AuditReportPdfController::class)->name('audits.results.pdf');
 
     Route::livewire('audits/{assessment}', RunAudit::class)->name('audits.run');
 });

@@ -12,9 +12,17 @@
             </flux:subheading>
         </div>
 
-        <flux:button variant="ghost" icon="arrow-left" :href="route('audits.run', $assessment)" wire:navigate>
-            Nazad na audit
-        </flux:button>
+        <div class="flex items-center gap-2">
+            @if ($assessment->status === 'completed')
+                <flux:button variant="primary" icon="arrow-down-tray" :href="route('audits.results.pdf', $assessment)">
+                    Izvezi izvještaj
+                </flux:button>
+            @endif
+
+            <flux:button variant="ghost" icon="arrow-left" :href="route('audits.run', $assessment)" wire:navigate>
+                Nazad na audit
+            </flux:button>
+        </div>
     </div>
 
     @if ($assessment->status !== 'completed')

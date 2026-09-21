@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property-read Area $area area_id is a required column, so this relation is never null.
+ */
 #[Fillable(['area_id', 'key', 'name', 'sort_order', 'weight'])]
 class Workbook extends Model
 {
