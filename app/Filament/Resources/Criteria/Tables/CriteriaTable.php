@@ -55,6 +55,20 @@ class CriteriaTable
                     ->label('Self-service')
                     ->boolean()
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('channel')
+                    ->label('Kanal')
+                    ->badge()
+                    ->formatStateUsing(fn (?string $state): string => match ($state) {
+                        'web' => 'Web',
+                        'gbp' => 'GBP',
+                        'social' => 'Društvene mreže',
+                        default => '—',
+                    })
+                    ->toggleable(isToggledHiddenByDefault: true),
+                IconColumn::make('quick_audit')
+                    ->label('Quick audit')
+                    ->boolean()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 SelectFilter::make('workbook')
@@ -69,6 +83,15 @@ class CriteriaTable
                     ]),
                 TernaryFilter::make('is_relevance_gate')
                     ->label('Relevance gate'),
+                SelectFilter::make('channel')
+                    ->label('Kanal')
+                    ->options([
+                        'web' => 'Web',
+                        'gbp' => 'Google Business profil',
+                        'social' => 'Društvene mreže',
+                    ]),
+                TernaryFilter::make('quick_audit')
+                    ->label('Quick audit'),
             ])
             ->recordActions([
                 EditAction::make(),

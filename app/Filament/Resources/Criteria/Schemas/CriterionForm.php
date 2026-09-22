@@ -4,10 +4,12 @@ namespace App\Filament\Resources\Criteria\Schemas;
 
 use App\Models\Workbook;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
 class CriterionForm
@@ -76,6 +78,50 @@ class CriterionForm
                         Toggle::make('is_relevance_gate')
                             ->label('Relevance gate')
                             ->helperText('Kad je odgovoren negativno, ostali kriteriji iz iste grupe automatski postaju N/A.'),
+                        Select::make('channel')
+                            ->label('Kanal')
+                            ->options([
+                                'web' => 'Web',
+                                'gbp' => 'Google Business profil',
+                                'social' => 'Društvene mreže',
+                            ])
+                            ->native(false),
+                    ]),
+
+                Section::make('Quick audit')
+                    ->description('Podaci za skraćeni javni audit (quick_audit sekcija metodologije). Vidljivo samo kad je kriterij uključen u quick audit.')
+                    ->columns(2)
+                    ->components([
+                        Toggle::make('quick_audit')
+                            ->label('Uključen u quick audit')
+                            ->live()
+                            ->columnSpanFull(),
+                        TextInput::make('quick_block')
+                            ->label('Quick audit blok')
+                            ->maxLength(255)
+                            ->visible(fn (Get $get) => (bool) $get('quick_audit')),
+                        Select::make('quick_source')
+                            ->label('Izvor')
+                            ->options([
+                                'auto_http' => 'Automatski (HTTP)',
+                                'auto_psi' => 'Automatski (PageSpeed Insights)',
+                                'auto_places' => 'Automatski (Google Places)',
+                                'self' => 'Pitanje korisniku',
+                            ])
+                            ->native(false)
+                            ->visible(fn (Get $get) => (bool) $get('quick_audit')),
+                        Textarea::make('quick_question')
+                            ->label('Quick audit pitanje')
+                            ->columnSpanFull()
+                            ->visible(fn (Get $get) => (bool) $get('quick_audit')),
+                        TagsInput::make('quick_option_labels')
+                            ->label('Quick audit opcije')
+                            ->columnSpanFull()
+                            ->visible(fn (Get $get) => (bool) $get('quick_audit')),
+                        Textarea::make('quick_note')
+                            ->label('Quick audit napomena')
+                            ->columnSpanFull()
+                            ->visible(fn (Get $get) => (bool) $get('quick_audit')),
                     ]),
             ]);
     }
