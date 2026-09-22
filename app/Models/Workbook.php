@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property-read Area $area area_id is a required column, so this relation is never null.
  */
-#[Fillable(['area_id', 'key', 'name', 'sort_order', 'weight'])]
+#[Fillable(['area_id', 'key', 'name', 'sort_order', 'weight', 'introduced_in_version'])]
 class Workbook extends Model
 {
     /** @use HasFactory<WorkbookFactory> */

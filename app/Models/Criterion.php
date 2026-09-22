@@ -20,6 +20,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     'self_service_eligible',
     'is_relevance_gate',
     'sort_order',
+    'channel',
+    'quick_audit',
+    'quick_block',
+    'quick_source',
+    'quick_question',
+    'quick_option_labels',
+    'quick_note',
 ])]
 class Criterion extends Model
 {
@@ -31,6 +38,8 @@ class Criterion extends Model
         return [
             'self_service_eligible' => 'boolean',
             'is_relevance_gate' => 'boolean',
+            'quick_audit' => 'boolean',
+            'quick_option_labels' => 'array',
         ];
     }
 
