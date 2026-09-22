@@ -16,14 +16,14 @@ Cijena učitavanja 24 kriterija ili 420 kriterija u bazu je identična — to je
 
 Ono što stvarno treba redukovati za v1:
 
-| Odlučeno ZA MVP | Odloženo za kasnije |
-| --- | --- |
-| Auditor sam unosi odgovore (interni alat) | Klijent self-service "brzi scan" |
-| Jedan tenant (Ramizova agencija) | Multi-tenant SaaS |
-| Puna metodologija (420 kriterija) kao podaci | — (ne skraćivati) |
-| Dashboard + osnovni PDF izvoz | Poređenje kroz vrijeme / trend grafici |
-| Ravnomjerni ponderi (editabilni u adminu) | Kalibrisani ponderi na osnovu stvarnih audita |
-| Filament admin za CRUD potrebe (samo interni dio) | Prilagođen branded UI za auditore |
+| Odlučeno ZA MVP                                   | Odloženo za kasnije                           |
+| ------------------------------------------------- | --------------------------------------------- |
+| Auditor sam unosi odgovore (interni alat)         | Klijent self-service "brzi scan"              |
+| Jedan tenant (Ramizova agencija)                  | Multi-tenant SaaS                             |
+| Puna metodologija (420 kriterija) kao podaci      | — (ne skraćivati)                             |
+| Dashboard + osnovni PDF izvoz                     | Poređenje kroz vrijeme / trend grafici        |
+| Ravnomjerni ponderi (editabilni u adminu)         | Kalibrisani ponderi na osnovu stvarnih audita |
+| Filament admin za CRUD potrebe (samo interni dio) | Prilagođen branded UI za auditore             |
 
 **Redoslijed gradnje:** prvo izgraditi kompletan tehnički tok (šema → scoring → unos → dashboard) na JEDNOJ oblasti (Web, jer je najveća i najimpresivnija sa Lighthouse integracijom), potvrditi da sve radi tačno, zatim ubaciti preostalih 13 workbookova kao čistu seed operaciju — arhitektura se time ne mijenja, samo raste količina podataka.
 
@@ -31,15 +31,15 @@ Ono što stvarno treba redukovati za v1:
 
 Svaka faza ispod (4–10) ima gotov prompt koji možeš direktno kopirati u Claude Code. Radi ih redom — svaka sljedeća pretpostavlja da je prethodna završena i prošla kroz tvoju provjeru.
 
-| Faza | Cilj | Rezultat |
-| --- | --- | --- |
-| 0. Provjera projekta | Postojeći Laravel 13 + MySQL projekat, TALL stack, auth | Aplikacija se pokreće, migracije prolaze |
-| 1. Data model i scoring | Šema baze + servis za bodovanje | Testiran scoring engine (još bez UI-ja) |
-| 2. Seed metodologije | Učitavanje svih 420 kriterija | Baza puna stvarnih RDS podataka |
-| 3. Admin (Filament) | CRUD za kompanije, oblasti, kriterije | Možeš sam mijenjati pitanja bez developera |
-| 4. Unos audita | Wizard za auditora kroz workbookove | Možeš provesti kompletan audit u aplikaciji |
-| 5. Dashboard | Prikaz rezultata po uzoru na mockup | Vizuelni izvještaj spreman za prodajni sastanak |
-| 6. Akcioni plan i PDF | Automatske preporuke + izvoz | Dokument koji možeš poslati klijentu |
+| Faza                    | Cilj                                                    | Rezultat                                        |
+| ----------------------- | ------------------------------------------------------- | ----------------------------------------------- |
+| 0. Provjera projekta    | Postojeći Laravel 13 + MySQL projekat, TALL stack, auth | Aplikacija se pokreće, migracije prolaze        |
+| 1. Data model i scoring | Šema baze + servis za bodovanje                         | Testiran scoring engine (još bez UI-ja)         |
+| 2. Seed metodologije    | Učitavanje svih 420 kriterija                           | Baza puna stvarnih RDS podataka                 |
+| 3. Admin (Filament)     | CRUD za kompanije, oblasti, kriterije                   | Možeš sam mijenjati pitanja bez developera      |
+| 4. Unos audita          | Wizard za auditora kroz workbookove                     | Možeš provesti kompletan audit u aplikaciji     |
+| 5. Dashboard            | Prikaz rezultata po uzoru na mockup                     | Vizuelni izvještaj spreman za prodajni sastanak |
+| 6. Akcioni plan i PDF   | Automatske preporuke + izvoz                            | Dokument koji možeš poslati klijentu            |
 
 Nakon faze 6 imaš radeći MVP dovoljan za evaluaciju na stvarnim klijentima. Backlog za kasnije je u sekciji 11.
 
@@ -69,6 +69,7 @@ Provjeri prije prelaska na Fazu 1: migracije prolaze na MySQL bazi, Tailwind/Liv
 > - `assessment_answers`: assessment_id (FK), criterion_id (FK), selected_option_id (FK nullable), is_na (bool), na_reason (nullable string), evidence_path (nullable string), notes (nullable text)
 >
 > Zatim napravi `app/Services/ScoringService.php` sa metodama:
+>
 > - `workbookScore(Assessment $assessment, Workbook $workbook): float` — zbir ostvarenih bodova primjenjivih (ne-N/A) kriterija, normalizovan na 100 u odnosu na zbir maksimalnih bodova primjenjivih kriterija.
 > - `areaScore(Assessment $assessment, Area $area): float` — ponderisani prosjek workbookScore() njegovih workbookova (koristi kolonu `weight`).
 > - `overallScore(Assessment $assessment): float` — ponderisani prosjek areaScore() svih oblasti.
@@ -91,6 +92,7 @@ U repo dodaj `database/seeders/data/rds_methodology_seed.json` — sve 4 oblasti
 **Preporuka: Filament da, ali samo za interni admin CRUD (kompanije, oblasti, workbookovi, kriteriji) — ne za tok unosa audita ni za klijentski dashboard.** Filament je najbrži put do funkcionalnog CRUD-a nad metodologijom, i tačno je za taj posao napravljen. Wizard za unos audita (Faza 4) i dashboard rezultata (Faza 5) trebaju custom Livewire/Blade jer zahtijevaju specifičan tok kroz workbookove i vizuelni identitet (kao na mockupu) koji Filament ne nudi bez značajnog prilagođavanja. Nije potrebno birati jedno ili drugo — Filament i custom Livewire rade zajedno u istoj Laravel aplikaciji, svako na svom dijelu.
 
 > Napravi Filament Resource-e za:
+>
 > - `Company` — forma sa svim poljima iz Profil kompanije (osnovni podaci, poslovni model), plus repeater/relation manager za `company_channel_relevance` (lista kanala sa dropdown: kritičan/preporučen/nije relevantan).
 > - `Area`, `Workbook` — jednostavan CRUD sa poljima key/name/sort_order/weight, ugniježden tako da se iz Area vidi lista njenih Workbookova.
 > - `Criterion` — CRUD sa relation manager-om za `CriterionOption` (repeater: label + points), plus polja group_label, text, answer_type, priority, evidence_source, self_service_eligible, is_relevance_gate.
@@ -107,7 +109,8 @@ U repo dodaj `database/seeders/data/rds_methodology_seed.json` — sve 4 oblasti
 
 ## 9. Faza 5 — Dashboard rezultata
 
-> Napravi Livewire/Blade stranicu "Rezultati audita" za završen (ili djelimično popunjen) Assessment, vizuelno po uzoru na priloženi mockup:
+> Napravi Livewire/Blade stranicu "Rezultati audita" za završen (ili djelimično popunjen) Assessment, vizuelno po uzoru na priloženi mockup (mockup.png u root folderu):
+>
 > - Veliki kružni indikator ukupnog Reunion Digital Score-a (0–100) sa opisnim statusom (npr. Kritično/Reaktivno/Funkcionalno/Upravljano/Napredno, prema pragovima iz metodologije).
 > - Bar chart raspodjele rezultata po glavnim oblastima.
 > - Kartice po oblasti: kružni score, kratak opis, link "Pogledaj detalje" koji vodi na prikaz svih workbookova/kriterija te oblasti sa pojedinačnim odgovorima i dokazima.
