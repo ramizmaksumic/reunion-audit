@@ -8,7 +8,9 @@
         "seo_prisutnost",
         "digitalna_reputacija",
         "brend_i_identitet",
-        "povjerenje_i_kredibilitet"
+        "povjerenje_i_kredibilitet",
+        "drustvene_mreze",
+        "ai_vidljivost"
       ]
     },
     "korisnicko_iskustvo": {
@@ -63,7 +65,9 @@
           "evidence_source": "Browser / Screaming Frog",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-002",
@@ -83,7 +87,12 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "web",
+          "quick_source": "auto_http",
+          "quick_question": null
         },
         {
           "id": "WEB-003",
@@ -103,7 +112,9 @@
           "evidence_source": "SSL Labs",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-004",
@@ -123,7 +134,9 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-005",
@@ -143,7 +156,9 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-006",
@@ -163,7 +178,9 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-007",
@@ -183,7 +200,9 @@
           "evidence_source": "GSC",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-008",
@@ -203,7 +222,9 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-009",
@@ -231,7 +252,13 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "web",
+          "quick_source": "auto_psi",
+          "quick_question": null,
+          "quick_note": "Koristiti mobilni test u PageSpeed Insights API-ju."
         },
         {
           "id": "WEB-010",
@@ -259,7 +286,9 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-011",
@@ -287,7 +316,9 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-012",
@@ -315,7 +346,9 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-013",
@@ -343,7 +376,9 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-014",
@@ -371,7 +406,9 @@
           "evidence_source": "Lighthouse",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-015",
@@ -395,7 +432,9 @@
           "evidence_source": "PSI",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-016",
@@ -419,7 +458,9 @@
           "evidence_source": "PSI",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-017",
@@ -443,7 +484,9 @@
           "evidence_source": "PSI",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-018",
@@ -467,7 +510,9 @@
           "evidence_source": "PSI",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-019",
@@ -487,7 +532,13 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "web",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Provjera na početnoj stranici."
         },
         {
           "id": "WEB-020",
@@ -507,7 +558,13 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "web",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Provjera na početnoj stranici."
         },
         {
           "id": "WEB-021",
@@ -527,7 +584,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-022",
@@ -547,7 +606,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-023",
@@ -567,7 +628,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-024",
@@ -591,7 +654,9 @@
           "evidence_source": "Rich Results",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-025",
@@ -619,7 +684,9 @@
           "evidence_source": "SF",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-026",
@@ -639,7 +706,9 @@
           "evidence_source": "Browser",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-027",
@@ -659,7 +728,13 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "web",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Provjeriti noindex (meta i X-Robots-Tag) i blokadu u robots.txt."
         },
         {
           "id": "WEB-028",
@@ -687,7 +762,9 @@
           "evidence_source": "SF",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-029",
@@ -711,7 +788,9 @@
           "evidence_source": "SF",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-030",
@@ -731,7 +810,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-031",
@@ -755,7 +836,9 @@
           "evidence_source": "SF",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-032",
@@ -775,7 +858,9 @@
           "evidence_source": "Browser",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-033",
@@ -799,7 +884,9 @@
           "evidence_source": "DevTools",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-034",
@@ -823,7 +910,9 @@
           "evidence_source": "DevTools",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-035",
@@ -847,7 +936,9 @@
           "evidence_source": "DevTools",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-036",
@@ -867,7 +958,9 @@
           "evidence_source": "GSC",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-037",
@@ -891,7 +984,9 @@
           "evidence_source": "GSC",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-038",
@@ -911,7 +1006,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-039",
@@ -931,7 +1028,9 @@
           "evidence_source": "SF",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-040",
@@ -951,7 +1050,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-041",
@@ -975,7 +1076,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-042",
@@ -995,7 +1098,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-043",
@@ -1023,7 +1128,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-044",
@@ -1051,7 +1158,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-045",
@@ -1079,7 +1188,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-046",
@@ -1107,7 +1218,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-047",
@@ -1135,7 +1248,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-048",
@@ -1163,7 +1278,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-049",
@@ -1191,7 +1308,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-050",
@@ -1219,7 +1338,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-051",
@@ -1247,7 +1368,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-052",
@@ -1275,7 +1398,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-053",
@@ -1303,7 +1428,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-054",
@@ -1331,7 +1458,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-055",
@@ -1359,7 +1488,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-056",
@@ -1387,7 +1518,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-057",
@@ -1415,7 +1548,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-058",
@@ -1443,7 +1578,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-059",
@@ -1471,7 +1608,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-060",
@@ -1499,7 +1638,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-061",
@@ -1527,7 +1668,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-062",
@@ -1555,7 +1698,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-063",
@@ -1583,7 +1728,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-064",
@@ -1611,7 +1758,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-065",
@@ -1639,7 +1788,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         },
         {
           "id": "WEB-066",
@@ -1667,7 +1818,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
         }
       ]
     },
@@ -1698,7 +1851,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-002",
@@ -1718,7 +1873,12 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "auto_places",
+          "quick_question": null
         },
         {
           "id": "GBP-003",
@@ -1738,7 +1898,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-004",
@@ -1758,7 +1920,12 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "auto_places",
+          "quick_question": null
         },
         {
           "id": "GBP-005",
@@ -1778,7 +1945,12 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "auto_places",
+          "quick_question": null
         },
         {
           "id": "GBP-006",
@@ -1798,7 +1970,13 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "auto_places",
+          "quick_question": null,
+          "quick_note": "Places API pokazuje samo da li je radno vrijeme uneseno, ne i da li je tačno. Puna provjera ostaje za puni audit."
         },
         {
           "id": "GBP-007",
@@ -1818,7 +1996,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-008",
@@ -1838,7 +2018,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-009",
@@ -1858,7 +2040,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-010",
@@ -1878,7 +2062,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-011",
@@ -1898,7 +2084,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-012",
@@ -1918,7 +2106,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-013",
@@ -1938,7 +2128,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-014",
@@ -1966,7 +2158,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-015",
@@ -1994,7 +2188,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-016",
@@ -2022,7 +2218,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-017",
@@ -2042,7 +2240,9 @@
           "evidence_source": "Audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-018",
@@ -2070,7 +2270,12 @@
           "evidence_source": "Google Business",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "reputacija_povjerenje",
+          "quick_source": "auto_places",
+          "quick_question": null
         },
         {
           "id": "GBP-019",
@@ -2098,7 +2303,12 @@
           "evidence_source": "Google Business",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "reputacija_povjerenje",
+          "quick_source": "auto_places",
+          "quick_question": null
         },
         {
           "id": "GBP-020",
@@ -2122,7 +2332,9 @@
           "evidence_source": "Google Business",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-021",
@@ -2146,7 +2358,13 @@
           "evidence_source": "Google Business",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": true,
+          "quick_block": "reputacija_povjerenje",
+          "quick_source": "self",
+          "quick_question": "Odgovarate li na negativne recenzije na Google-u? (Ako ih nemate, odaberite Da.)",
+          "quick_note": "Places API vjerovatno ne vraća odgovore vlasnika; provjeriti u dokumentaciji prije automatizacije."
         },
         {
           "id": "GBP-022",
@@ -2170,7 +2388,9 @@
           "evidence_source": "Google Business",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-023",
@@ -2194,7 +2414,9 @@
           "evidence_source": "Google Business",
           "answer_type": "threshold",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-024",
@@ -2218,7 +2440,9 @@
           "evidence_source": "Google Business",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-025",
@@ -2242,7 +2466,9 @@
           "evidence_source": "Google Business",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-026",
@@ -2270,7 +2496,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-027",
@@ -2290,7 +2518,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-028",
@@ -2310,7 +2540,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-029",
@@ -2330,7 +2562,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         },
         {
           "id": "GBP-030",
@@ -2350,7 +2584,9 @@
           "evidence_source": "Google Business",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "gbp",
+          "quick_audit": false
         }
       ]
     },
@@ -2381,7 +2617,9 @@
           "evidence_source": "Google Search",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-002",
@@ -2401,7 +2639,9 @@
           "evidence_source": "Google Search Console",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-003",
@@ -2421,7 +2661,9 @@
           "evidence_source": "Google Search Console",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-004",
@@ -2445,7 +2687,9 @@
           "evidence_source": "Google Search Console",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-005",
@@ -2465,7 +2709,13 @@
           "evidence_source": "Google Search",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "self",
+          "quick_question": "Upišite naziv vaše firme u Google. Da li se vaša web stranica ili profil pojavljuju na prvoj stranici rezultata?",
+          "quick_note": "Kasnije se može zamijeniti automatskom SERP provjerom (plaćeni API)."
         },
         {
           "id": "SEO-006",
@@ -2489,7 +2739,9 @@
           "evidence_source": "Google Search",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-007",
@@ -2513,7 +2765,9 @@
           "evidence_source": "Google Search",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-008",
@@ -2537,7 +2791,9 @@
           "evidence_source": "Search Console / GA4",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-009",
@@ -2557,7 +2813,9 @@
           "evidence_source": "SEO dokumentacija",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-010",
@@ -2581,7 +2839,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-011",
@@ -2605,7 +2865,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-012",
@@ -2629,7 +2891,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-013",
@@ -2653,7 +2917,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-014",
@@ -2677,7 +2943,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-015",
@@ -2697,7 +2965,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-016",
@@ -2721,7 +2991,9 @@
           "evidence_source": "Ahrefs / Moz",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-017",
@@ -2745,7 +3017,9 @@
           "evidence_source": "Google Search",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-018",
@@ -2765,7 +3039,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-019",
@@ -2789,7 +3065,9 @@
           "evidence_source": "Google Search",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-020",
@@ -2813,7 +3091,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-021",
@@ -2833,7 +3113,9 @@
           "evidence_source": "Google Search Console",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-022",
@@ -2853,7 +3135,13 @@
           "evidence_source": "Google Analytics 4",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "mjerenje_rast",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Detekcija GA4 ili GTM oznake u HTML-u. GTM može sakriti GA4, pa 'nije pronađeno' treba imati opciju ručne potvrde."
         },
         {
           "id": "SEO-023",
@@ -2877,7 +3165,9 @@
           "evidence_source": "GA4",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "SEO-024",
@@ -2901,7 +3191,9 @@
           "evidence_source": "Ahrefs / Semrush",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -2932,7 +3224,9 @@
           "evidence_source": "Google Business / Facebook / Booking",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-002",
@@ -2960,7 +3254,9 @@
           "evidence_source": "Relevantna platforma",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-003",
@@ -2988,7 +3284,9 @@
           "evidence_source": "Relevantna platforma",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-004",
@@ -3012,7 +3310,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-005",
@@ -3036,7 +3336,9 @@
           "evidence_source": "Relevantna platforma",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-006",
@@ -3060,7 +3362,9 @@
           "evidence_source": "Relevantna platforma",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-007",
@@ -3084,7 +3388,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-008",
@@ -3108,7 +3414,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-009",
@@ -3128,7 +3436,9 @@
           "evidence_source": "Google Search",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-010",
@@ -3152,7 +3462,9 @@
           "evidence_source": "Google Search",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-011",
@@ -3176,7 +3488,9 @@
           "evidence_source": "Google Search",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-012",
@@ -3200,7 +3514,9 @@
           "evidence_source": "Google Search",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-013",
@@ -3220,7 +3536,13 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "reputacija_povjerenje",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Heuristika: telefon/email vidljivi na početnoj ili stranici Kontakt."
         },
         {
           "id": "REP-014",
@@ -3244,7 +3566,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-015",
@@ -3268,7 +3592,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-016",
@@ -3296,7 +3622,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-017",
@@ -3316,7 +3644,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-018",
@@ -3336,7 +3666,13 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "reputacija_povjerenje",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Heuristika: link na politiku privatnosti u podnožju ili meniju."
         },
         {
           "id": "REP-019",
@@ -3356,7 +3692,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-020",
@@ -3376,7 +3714,9 @@
           "evidence_source": "Audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-021",
@@ -3400,7 +3740,9 @@
           "evidence_source": "Google Business / Facebook",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-022",
@@ -3424,7 +3766,9 @@
           "evidence_source": "Relevantne platforme",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-023",
@@ -3448,7 +3792,9 @@
           "evidence_source": "Audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "REP-024",
@@ -3468,7 +3814,9 @@
           "evidence_source": "Google Search",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -3499,7 +3847,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-002",
@@ -3523,7 +3873,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-003",
@@ -3547,7 +3899,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-004",
@@ -3575,7 +3929,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-005",
@@ -3595,7 +3951,12 @@
           "evidence_source": "Web + GBP + Društvene mreže",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "drustvene_mreze",
+          "quick_source": "self",
+          "quick_question": "Zove li se vaša firma isto na web stranici, Google profilu i društvenim mrežama?"
         },
         {
           "id": "BI-006",
@@ -3615,7 +3976,9 @@
           "evidence_source": "Web + GBP",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-007",
@@ -3635,7 +3998,9 @@
           "evidence_source": "Web + Društvene mreže",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-008",
@@ -3655,7 +4020,9 @@
           "evidence_source": "Web + GBP",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-009",
@@ -3679,7 +4046,9 @@
           "evidence_source": "Audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-010",
@@ -3703,7 +4072,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-011",
@@ -3731,7 +4102,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-012",
@@ -3755,7 +4128,9 @@
           "evidence_source": "Audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-013",
@@ -3775,7 +4150,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-014",
@@ -3795,7 +4172,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-015",
@@ -3815,7 +4194,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-016",
@@ -3835,7 +4216,9 @@
           "evidence_source": "Ručni test",
           "answer_type": "binary",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-017",
@@ -3855,7 +4238,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-018",
@@ -3875,7 +4260,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "binary",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-019",
@@ -3899,7 +4286,9 @@
           "evidence_source": "Audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-020",
@@ -3923,7 +4312,9 @@
           "evidence_source": "Web stranica",
           "answer_type": "graded",
           "self_service_eligible": true,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-021",
@@ -3951,7 +4342,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-022",
@@ -3979,7 +4372,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-023",
@@ -4007,7 +4402,9 @@
           "evidence_source": "Audit",
           "answer_type": "audit_opinion",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "BI-024",
@@ -4031,7 +4428,9 @@
           "evidence_source": "Audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -4066,7 +4465,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-002",
@@ -4090,7 +4491,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-003",
@@ -4114,7 +4517,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-004",
@@ -4138,7 +4543,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-005",
@@ -4162,7 +4569,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-006",
@@ -4186,7 +4595,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-007",
@@ -4210,7 +4621,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-008",
@@ -4234,7 +4647,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-009",
@@ -4258,7 +4673,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-010",
@@ -4282,7 +4699,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-011",
@@ -4306,7 +4725,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-012",
@@ -4330,7 +4751,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-013",
@@ -4354,7 +4777,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-014",
@@ -4378,7 +4803,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-015",
@@ -4402,7 +4829,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-016",
@@ -4426,7 +4855,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-017",
@@ -4450,7 +4881,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-018",
@@ -4474,7 +4907,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-019",
@@ -4498,7 +4933,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-020",
@@ -4522,7 +4959,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-021",
@@ -4546,7 +4985,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-022",
@@ -4570,7 +5011,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-023",
@@ -4594,7 +5037,9 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "PK-024",
@@ -4618,7 +5063,989 @@
           "evidence_source": "Ručni audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
+        }
+      ]
+    },
+    {
+      "area_key": "digitalna_prisutnost",
+      "area_name": "Digitalna prisutnost",
+      "workbook_key": "drustvene_mreze",
+      "workbook_name": "Društvene mreže",
+      "id_prefix": "DM",
+      "criteria_count": 24,
+      "points_per_criterion": 4.1667,
+      "criteria": [
+        {
+          "id": "DM-001",
+          "group": "I. Osnovni podaci profila",
+          "text": "Firma koristi poslovni profil (stranicu ili poslovni račun), a ne lični profil.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "binary",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-002",
+          "group": "I. Osnovni podaci profila",
+          "text": "Naziv i korisničko ime profila odgovaraju nazivu firme i lako se pronalaze.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-003",
+          "group": "I. Osnovni podaci profila",
+          "text": "Opis profila jasno kaže čime se firma bavi i gdje posluje.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-004",
+          "group": "I. Osnovni podaci profila",
+          "text": "Kategorija djelatnosti (gdje mreža to omogućava) ispravno je odabrana.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-005",
+          "group": "II. Kontakt i poziv na akciju",
+          "text": "Kontakt podaci (telefon, email ili adresa) navedeni su i tačni.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-006",
+          "group": "II. Kontakt i poziv na akciju",
+          "text": "Link na web stranicu ili glavni cilj postavljen je i funkcioniše.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-007",
+          "group": "II. Kontakt i poziv na akciju",
+          "text": "Dugme za akciju (poruka, poziv, rezervacija) uključeno je i vodi na pravi kanal.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-008",
+          "group": "II. Kontakt i poziv na akciju",
+          "text": "Radno vrijeme i lokacija navedeni su gdje je to relevantno.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-009",
+          "group": "III. Vizuelni izgled",
+          "text": "Profilna slika ili logo jasan je i odgovara brendu.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-010",
+          "group": "III. Vizuelni izgled",
+          "text": "Naslovna slika (cover) koristi se i predstavlja ponudu ili brend.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-011",
+          "group": "III. Vizuelni izgled",
+          "text": "Vizuelni stil objava prepoznatljiv je i ujednačen.",
+          "options": [
+            {
+              "label": "Odlično",
+              "points": 4.17
+            },
+            {
+              "label": "Dobro",
+              "points": 3.13
+            },
+            {
+              "label": "Osnovno",
+              "points": 2.08
+            },
+            {
+              "label": "Loše",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "audit_opinion",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-012",
+          "group": "III. Vizuelni izgled",
+          "text": "Kvalitet fotografija i videa odgovara djelatnosti firme.",
+          "options": [
+            {
+              "label": "Odlično",
+              "points": 4.17
+            },
+            {
+              "label": "Dobro",
+              "points": 3.13
+            },
+            {
+              "label": "Osnovno",
+              "points": 2.08
+            },
+            {
+              "label": "Loše",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "audit_opinion",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-013",
+          "group": "IV. Aktivnost i sadržaj",
+          "text": "Posljednja objava na glavnoj mreži nije starija od 30 dana.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "binary",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": true,
+          "quick_block": "drustvene_mreze",
+          "quick_source": "self",
+          "quick_question": "Kada ste posljednji put objavili sadržaj na glavnoj društvenoj mreži?",
+          "quick_option_labels": [
+            "U posljednjih 30 dana",
+            "Prije više od 30 dana"
+          ]
+        },
+        {
+          "id": "DM-014",
+          "group": "IV. Aktivnost i sadržaj",
+          "text": "Objave se pojavljuju ujednačenim ritmom (npr. barem sedmično na glavnoj mreži).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-015",
+          "group": "IV. Aktivnost i sadržaj",
+          "text": "Sadržaj je raznovrstan (ponuda, savjeti, iza kulisa, iskustva kupaca).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-016",
+          "group": "IV. Aktivnost i sadržaj",
+          "text": "Koriste se formati koje mreža favorizuje (video/Reels, karuseli, stories).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-017",
+          "group": "V. Angažman i odgovaranje",
+          "text": "Poruke i komentari dobijaju odgovor isti ili sljedeći radni dan.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Mystery shopping",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": true,
+          "quick_block": "drustvene_mreze",
+          "quick_source": "self",
+          "quick_question": "Odgovarate li na poruke i komentare kupaca na društvenim mrežama isti ili sljedeći radni dan?",
+          "quick_note": "U punom auditu ovo provjerava mystery shopping; ovdje je samoprocjena."
+        },
+        {
+          "id": "DM-018",
+          "group": "V. Angažman i odgovaranje",
+          "text": "Objave dobijaju reakcije i komentare u skladu s veličinom publike.",
+          "options": [
+            {
+              "label": "Odlično",
+              "points": 4.17
+            },
+            {
+              "label": "Dobro",
+              "points": 3.13
+            },
+            {
+              "label": "Osnovno",
+              "points": 2.08
+            },
+            {
+              "label": "Loše",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "audit_opinion",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-019",
+          "group": "V. Angažman i odgovaranje",
+          "text": "Na negativne komentare reaguje se profesionalno i javno.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-020",
+          "group": "V. Angažman i odgovaranje",
+          "text": "Publika raste ili je stabilna u posljednjih 6–12 mjeseci.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Intervju + Pregled kanala + Manual audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-021",
+          "group": "VI. Upravljanje i poslovna svrha",
+          "text": "Društvene mreže imaju definisan poslovni cilj (upiti, rezervacije, prodaja), a ne samo prisustvo.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Intervju + Pregled kanala + Manual audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-022",
+          "group": "VI. Upravljanje i poslovna svrha",
+          "text": "Koristi se društveni dokaz (recenzije, iskustva kupaca, dijeljenje njihovog sadržaja).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-023",
+          "group": "VI. Upravljanje i poslovna svrha",
+          "text": "Objave se planiraju unaprijed (kalendar sadržaja).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Intervju + Pregled kanala + Manual audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        },
+        {
+          "id": "DM-024",
+          "group": "VI. Upravljanje i poslovna svrha",
+          "text": "Firma je administrator svojih profila i ima pristup njima (ne zavisi od jedne osobe ili bivšeg saradnika).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 4.17
+            },
+            {
+              "label": "Djelimično",
+              "points": 2.08
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Intervju + Pregled kanala + Manual audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
+        }
+      ]
+    },
+    {
+      "area_key": "digitalna_prisutnost",
+      "area_name": "Digitalna prisutnost",
+      "workbook_key": "ai_vidljivost",
+      "workbook_name": "AI vidljivost",
+      "id_prefix": "AI",
+      "criteria_count": 12,
+      "points_per_criterion": 8.3333,
+      "criteria": [
+        {
+          "id": "AI-001",
+          "group": "I. Strukturirani podaci i pristup crawlerima",
+          "text": "Početna stranica ima strukturirane podatke tipa Organization ili LocalBusiness (JSON-LD).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Web stranica",
+          "answer_type": "binary",
+          "self_service_eligible": true,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "pronalazljivost",
+          "quick_source": "auto_http",
+          "quick_note": "Detekcija JSON-LD Organization/LocalBusiness na početnoj stranici. Signal jasnoće entiteta; ne garantuje pojavljivanje u AI odgovorima."
+        },
+        {
+          "id": "AI-002",
+          "group": "I. Strukturirani podaci i pristup crawlerima",
+          "text": "Strukturirani podaci sadrže tačan naziv, adresu, telefon, radno vrijeme i linkove na profile firme.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Web stranica",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-003",
+          "group": "I. Strukturirani podaci i pristup crawlerima",
+          "text": "Datoteka robots.txt ne blokira nenamjerno pretraživače i AI crawlere (npr. GPTBot, PerplexityBot).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Browser",
+          "answer_type": "graded",
+          "self_service_eligible": true,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-004",
+          "group": "I. Strukturirani podaci i pristup crawlerima",
+          "text": "Ključne informacije (usluge, lokacija, kontakt) dostupne su kao običan tekst, a ne samo u slikama ili PDF-ovima.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-005",
+          "group": "II. Jasnoća i ažurnost sadržaja",
+          "text": "Stranica direktno odgovara na najčešća pitanja kupaca (FAQ ili pitanja i odgovori).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-006",
+          "group": "II. Jasnoća i ažurnost sadržaja",
+          "text": "Svaka glavna usluga ili proizvod ima zasebnu stranicu s jasnim opisom i područjem rada.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-007",
+          "group": "II. Jasnoća i ažurnost sadržaja",
+          "text": "Cijene, radno vrijeme i ponuda ažurni su na webu i profilima, pa AI alati ne prenose zastarjele podatke.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-008",
+          "group": "II. Jasnoća i ažurnost sadržaja",
+          "text": "Sadržaj je dostupan na jezicima ciljnih kupaca (npr. bosanski i engleski za turiste ili izvoz).",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Ručni audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": false
+        },
+        {
+          "id": "AI-009",
+          "group": "III. Prisustvo u AI odgovorima",
+          "text": "Na upit o firmi po nazivu AI alati daju tačan odgovor (djelatnost, lokacija, kontakt).",
+          "options": [
+            {
+              "label": "Odlično",
+              "points": 8.33
+            },
+            {
+              "label": "Dobro",
+              "points": 6.25
+            },
+            {
+              "label": "Osnovno",
+              "points": 4.17
+            },
+            {
+              "label": "Loše",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Ručni test",
+          "answer_type": "audit_opinion",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
+        },
+        {
+          "id": "AI-010",
+          "group": "III. Prisustvo u AI odgovorima",
+          "text": "Udio testnih AI upita (npr. „[djelatnost] [grad]“) u kojima se firma pojavljuje u preporukama.",
+          "options": [
+            {
+              "label": "≥50%",
+              "points": 8.33
+            },
+            {
+              "label": "25–49%",
+              "points": 6.25
+            },
+            {
+              "label": "1–24%",
+              "points": 4.17
+            },
+            {
+              "label": "0%",
+              "points": 0.0
+            }
+          ],
+          "priority": "Kritičan",
+          "evidence_source": "Ručni test",
+          "answer_type": "threshold",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
+        },
+        {
+          "id": "AI-011",
+          "group": "III. Prisustvo u AI odgovorima",
+          "text": "Postoje nezavisni izvori (portali, direktoriji, mediji) koji opisuju firmu i njenu ponudu.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Važan",
+          "evidence_source": "Google Search",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
+        },
+        {
+          "id": "AI-012",
+          "group": "III. Prisustvo u AI odgovorima",
+          "text": "Firma povremeno provjerava kako je AI alati opisuju i preporučuju.",
+          "options": [
+            {
+              "label": "Da",
+              "points": 8.33
+            },
+            {
+              "label": "Djelimično",
+              "points": 4.17
+            },
+            {
+              "label": "Ne",
+              "points": 0.0
+            }
+          ],
+          "priority": "Preporučen",
+          "evidence_source": "Intervju + Pregled kanala + Manual audit",
+          "answer_type": "graded",
+          "self_service_eligible": false,
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -4653,7 +6080,9 @@
           "evidence_source": "Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-002",
@@ -4677,7 +6106,9 @@
           "evidence_source": "Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-003",
@@ -4701,7 +6132,9 @@
           "evidence_source": "Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-004",
@@ -4725,7 +6158,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-005",
@@ -4749,7 +6184,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-006",
@@ -4773,7 +6210,18 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "odziv_procesi",
+          "quick_source": "self",
+          "quick_question": "Koliko brzo odgovarate na upite kupaca?",
+          "quick_option_labels": [
+            "Isti dan",
+            "U roku 2–3 dana",
+            "Duže ili nepredvidivo"
+          ],
+          "quick_note": "U punom auditu ovo provjerava mystery shopping; ovdje je samoprocjena."
         },
         {
           "id": "UX-007",
@@ -4797,7 +6245,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-008",
@@ -4821,7 +6271,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-009",
@@ -4845,7 +6297,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-010",
@@ -4869,7 +6323,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-011",
@@ -4893,7 +6349,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-012",
@@ -4917,7 +6375,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-013",
@@ -4941,7 +6401,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-014",
@@ -4965,7 +6427,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-015",
@@ -4989,7 +6453,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-016",
@@ -5013,7 +6479,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-017",
@@ -5037,7 +6505,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-018",
@@ -5061,7 +6531,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-019",
@@ -5085,7 +6557,9 @@
           "evidence_source": "Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-020",
@@ -5109,7 +6583,9 @@
           "evidence_source": "Mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-021",
@@ -5133,7 +6609,9 @@
           "evidence_source": "Završni mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-022",
@@ -5157,7 +6635,9 @@
           "evidence_source": "Završni mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-023",
@@ -5181,7 +6661,9 @@
           "evidence_source": "Završni mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "UX-024",
@@ -5205,7 +6687,9 @@
           "evidence_source": "Završni mystery shopping",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -5240,7 +6724,12 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "odziv_procesi",
+          "quick_source": "self",
+          "quick_question": "Evidentirate li upite kupaca na jednom mjestu (CRM, tabela, sistem), a ne samo u porukama i mailovima?"
         },
         {
           "id": "DE-002",
@@ -5264,7 +6753,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-003",
@@ -5288,7 +6779,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-004",
@@ -5312,7 +6805,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-005",
@@ -5336,7 +6831,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-006",
@@ -5360,7 +6857,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-007",
@@ -5384,7 +6883,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-008",
@@ -5408,7 +6909,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-009",
@@ -5432,7 +6935,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-010",
@@ -5456,7 +6961,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-011",
@@ -5480,7 +6987,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-012",
@@ -5504,7 +7013,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-013",
@@ -5528,7 +7039,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-014",
@@ -5552,7 +7065,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-015",
@@ -5576,7 +7091,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-016",
@@ -5600,7 +7117,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-017",
@@ -5624,7 +7143,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-018",
@@ -5648,7 +7169,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-019",
@@ -5672,7 +7195,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-020",
@@ -5696,7 +7221,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-021",
@@ -5720,7 +7247,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-022",
@@ -5744,7 +7273,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-023",
@@ -5768,7 +7299,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "DE-024",
@@ -5792,7 +7325,9 @@
           "evidence_source": "Intervju + Demonstracija procesa + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -5827,7 +7362,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-002",
@@ -5851,7 +7388,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-003",
@@ -5875,7 +7414,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-004",
@@ -5899,7 +7440,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-005",
@@ -5923,7 +7466,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-006",
@@ -5947,7 +7492,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-007",
@@ -5971,7 +7518,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-008",
@@ -5995,7 +7544,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-009",
@@ -6019,7 +7570,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-010",
@@ -6043,7 +7596,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-011",
@@ -6067,7 +7622,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-012",
@@ -6091,7 +7648,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-013",
@@ -6115,7 +7674,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-014",
@@ -6139,7 +7700,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-015",
@@ -6163,7 +7726,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-016",
@@ -6187,7 +7752,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-017",
@@ -6211,7 +7778,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-018",
@@ -6235,7 +7804,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-019",
@@ -6259,7 +7830,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-020",
@@ -6283,7 +7856,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-021",
@@ -6307,7 +7882,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-022",
@@ -6331,7 +7908,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-023",
@@ -6355,7 +7934,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "MS-024",
@@ -6379,7 +7960,9 @@
           "evidence_source": "Intervju + Dokumentacija + Marketing plan",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -6414,7 +7997,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-002",
@@ -6438,7 +8023,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-003",
@@ -6462,7 +8049,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-004",
@@ -6486,7 +8075,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-005",
@@ -6510,7 +8101,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-006",
@@ -6534,7 +8127,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-007",
@@ -6558,7 +8153,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-008",
@@ -6582,7 +8179,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-009",
@@ -6606,7 +8205,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-010",
@@ -6630,7 +8231,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-011",
@@ -6654,7 +8257,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-012",
@@ -6678,7 +8283,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-013",
@@ -6702,7 +8309,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-014",
@@ -6726,7 +8335,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-015",
@@ -6750,7 +8361,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-016",
@@ -6774,7 +8387,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-017",
@@ -6798,7 +8413,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-018",
@@ -6822,7 +8439,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-019",
@@ -6846,7 +8465,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-020",
@@ -6870,7 +8491,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-021",
@@ -6894,7 +8517,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-022",
@@ -6918,7 +8543,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-023",
@@ -6942,7 +8569,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-024",
@@ -6966,7 +8595,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-025",
@@ -6990,7 +8621,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-026",
@@ -7014,7 +8647,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-027",
@@ -7038,7 +8673,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-028",
@@ -7062,7 +8699,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-029",
@@ -7086,7 +8725,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-030",
@@ -7110,7 +8751,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-031",
@@ -7134,7 +8777,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-032",
@@ -7158,7 +8803,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-033",
@@ -7182,7 +8829,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-034",
@@ -7206,7 +8855,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-035",
@@ -7230,7 +8881,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-036",
@@ -7254,7 +8907,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-037",
@@ -7278,7 +8933,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-038",
@@ -7302,7 +8959,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-039",
@@ -7326,7 +8985,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-040",
@@ -7350,7 +9011,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-041",
@@ -7374,7 +9037,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-042",
@@ -7398,7 +9063,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-043",
@@ -7422,7 +9089,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-044",
@@ -7446,7 +9115,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-045",
@@ -7470,7 +9141,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-046",
@@ -7494,7 +9167,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-047",
@@ -7518,7 +9193,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-048",
@@ -7542,7 +9219,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-049",
@@ -7566,7 +9245,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-050",
@@ -7590,7 +9271,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-051",
@@ -7614,7 +9297,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-052",
@@ -7638,7 +9323,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-053",
@@ -7662,7 +9349,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-054",
@@ -7686,7 +9375,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-055",
@@ -7710,7 +9401,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-056",
@@ -7734,7 +9427,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-057",
@@ -7758,7 +9453,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-058",
@@ -7782,7 +9479,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-059",
@@ -7806,7 +9505,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AK-060",
@@ -7830,7 +9531,9 @@
           "evidence_source": "Intervju + Analitika + Demonstracija",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": true
+          "is_relevance_gate": true,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -7865,7 +9568,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-002",
@@ -7889,7 +9594,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-003",
@@ -7913,7 +9620,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-004",
@@ -7937,7 +9646,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-005",
@@ -7961,7 +9672,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-006",
@@ -7985,7 +9698,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-007",
@@ -8009,7 +9724,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-008",
@@ -8033,7 +9750,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-009",
@@ -8057,7 +9776,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
         },
         {
           "id": "TK-010",
@@ -8081,7 +9802,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-011",
@@ -8105,7 +9828,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-012",
@@ -8129,7 +9854,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-013",
@@ -8153,7 +9880,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-014",
@@ -8177,7 +9906,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "social",
+          "quick_audit": false
         },
         {
           "id": "TK-015",
@@ -8201,7 +9932,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-016",
@@ -8225,7 +9958,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-017",
@@ -8249,7 +9984,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-018",
@@ -8273,7 +10010,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-019",
@@ -8297,7 +10036,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-020",
@@ -8321,7 +10062,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-021",
@@ -8345,7 +10088,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-022",
@@ -8369,7 +10114,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "TK-023",
@@ -8393,7 +10140,13 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": "web",
+          "quick_audit": true,
+          "quick_block": "odziv_procesi",
+          "quick_source": "auto_http",
+          "quick_question": null,
+          "quick_note": "Heuristika: forma, mailto:, tel:, Viber/WhatsApp link na početnoj ili stranici Kontakt."
         },
         {
           "id": "TK-024",
@@ -8417,7 +10170,9 @@
           "evidence_source": "Intervju + Pregled kanala + Manual audit",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -8452,7 +10207,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-002",
@@ -8476,7 +10233,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-003",
@@ -8500,7 +10259,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-004",
@@ -8524,7 +10285,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-005",
@@ -8548,7 +10311,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-006",
@@ -8572,7 +10337,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-007",
@@ -8596,7 +10363,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-008",
@@ -8620,7 +10389,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-009",
@@ -8644,7 +10415,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-010",
@@ -8668,7 +10441,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-011",
@@ -8692,7 +10467,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-012",
@@ -8716,7 +10493,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-013",
@@ -8740,7 +10519,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-014",
@@ -8764,7 +10545,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-015",
@@ -8788,7 +10571,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-016",
@@ -8812,7 +10597,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-017",
@@ -8836,7 +10623,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-018",
@@ -8860,7 +10649,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-019",
@@ -8884,7 +10675,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-020",
@@ -8908,7 +10701,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-021",
@@ -8932,7 +10727,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-022",
@@ -8956,7 +10753,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-023",
@@ -8980,7 +10779,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "KO-024",
@@ -9004,7 +10805,9 @@
           "evidence_source": "Intervju + Analitika + Uvid u kampanje",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -9039,7 +10842,12 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "mjerenje_rast",
+          "quick_source": "self",
+          "quick_question": "Javljate li se redovno postojećim kupcima (newsletter, Viber, poziv, ponuda)?"
         },
         {
           "id": "ZR-002",
@@ -9063,7 +10871,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-003",
@@ -9087,7 +10897,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-004",
@@ -9111,7 +10923,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-005",
@@ -9135,7 +10949,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-006",
@@ -9159,7 +10975,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-007",
@@ -9183,7 +11001,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-008",
@@ -9207,7 +11027,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-009",
@@ -9231,7 +11053,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-010",
@@ -9255,7 +11079,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-011",
@@ -9279,7 +11105,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-012",
@@ -9303,7 +11131,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-013",
@@ -9327,7 +11157,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-014",
@@ -9351,7 +11183,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-015",
@@ -9375,7 +11209,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-016",
@@ -9399,7 +11235,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-017",
@@ -9423,7 +11261,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-018",
@@ -9447,7 +11287,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-019",
@@ -9471,7 +11313,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-020",
@@ -9495,7 +11339,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-021",
@@ -9519,7 +11365,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-022",
@@ -9543,7 +11391,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-023",
@@ -9567,7 +11417,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "ZR-024",
@@ -9591,7 +11443,9 @@
           "evidence_source": "Intervju + CRM + Evidencije + Ankete",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     },
@@ -9626,7 +11480,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-002",
@@ -9650,7 +11506,12 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": true,
+          "quick_block": "mjerenje_rast",
+          "quick_source": "self",
+          "quick_question": "Pratite li redovno (npr. mjesečno) koliko upita ili prodaje dolazi i odakle?"
         },
         {
           "id": "AO-003",
@@ -9674,7 +11535,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-004",
@@ -9698,7 +11561,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-005",
@@ -9722,7 +11587,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-006",
@@ -9746,7 +11613,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-007",
@@ -9770,7 +11639,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-008",
@@ -9794,7 +11665,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-009",
@@ -9818,7 +11691,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-010",
@@ -9842,7 +11717,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-011",
@@ -9866,7 +11743,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-012",
@@ -9890,7 +11769,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-013",
@@ -9914,7 +11795,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-014",
@@ -9938,7 +11821,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-015",
@@ -9962,7 +11847,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-016",
@@ -9986,7 +11873,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-017",
@@ -10010,7 +11899,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-018",
@@ -10034,7 +11925,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-019",
@@ -10058,7 +11951,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-020",
@@ -10082,7 +11977,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-021",
@@ -10106,7 +12003,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-022",
@@ -10130,7 +12029,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-023",
@@ -10154,7 +12055,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         },
         {
           "id": "AO-024",
@@ -10178,7 +12081,9 @@
           "evidence_source": "Analitika + Dashboardi + Intervju",
           "answer_type": "graded",
           "self_service_eligible": false,
-          "is_relevance_gate": false
+          "is_relevance_gate": false,
+          "channel": null,
+          "quick_audit": false
         }
       ]
     }
@@ -10335,5 +12240,93 @@
       "measures": "Ukupan dojam korisničkog iskustva",
       "evidence": "Bilješke auditora"
     }
-  ]
+  ],
+  "quick_audit": {
+    "version": "0.2-draft",
+    "description": "Skraćeni javni audit (25 pokazatelja) izveden iz punog audita. Svaka stavka je 1:1 vezana za kriterij iz 'workbooks' preko id-a; odgovori se mapiraju na iste opcije kao u punom auditu.",
+    "blocks": [
+      {
+        "key": "pronalazljivost",
+        "name": "Pronalažljivost",
+        "weight": 20
+      },
+      {
+        "key": "web",
+        "name": "Web stranica",
+        "weight": 15
+      },
+      {
+        "key": "reputacija_povjerenje",
+        "name": "Reputacija i povjerenje",
+        "weight": 20
+      },
+      {
+        "key": "drustvene_mreze",
+        "name": "Društvene mreže i komunikacija",
+        "weight": 15
+      },
+      {
+        "key": "odziv_procesi",
+        "name": "Odziv i procesi",
+        "weight": 15
+      },
+      {
+        "key": "mjerenje_rast",
+        "name": "Mjerenje i rast",
+        "weight": 15
+      }
+    ],
+    "weights_note": "Početne pretpostavke; kalibrirati nakon 10–15 stvarnih audita poređenjem s punim auditom.",
+    "sources": {
+      "auto_http": "Dohvat početne stranice (HTML, zaglavlja, robots.txt); bez unosa korisnika.",
+      "auto_psi": "PageSpeed Insights API.",
+      "auto_places": "Google Places API (po nazivu firme i gradu).",
+      "self": "Kratko pitanje korisniku (Da / Djelimično / Ne)."
+    },
+    "channels": {
+      "web": {
+        "profile_question": "Web stranica (Kritično / Preporučeno / Nije relevantno)"
+      },
+      "gbp": {
+        "profile_question": "Google Business profil"
+      },
+      "social": {
+        "profile_question": "Facebook / Instagram (relevantno ako je bilo koji relevantan)"
+      }
+    },
+    "scoring": {
+      "item_value": "Za binary/graded/threshold: value = option.points / max(option.points za taj kriterij), dakle 0–1. Ne sabirati sirove bodove iz različitih radnih knjiga jer se points_per_criterion razlikuje (npr. WEB 1.5152, GBP 3.3333).",
+      "item_states": {
+        "scored": "Odgovoreno ili automatski izmjereno.",
+        "missing_zero": "Kanal je očekivan (Kritično/Preporučeno), ali ga firma nema: vrijednost 0, i to je nalaz.",
+        "excluded": "Kanal je 'Nije relevantno' ili podatak nije dostupan (greška API-ja, bez odgovora): izuzima se i iz brojnika i iz nazivnika."
+      },
+      "channel_rule": "Ako kriterij ima 'channel': kanal 'Nije relevantno' -> excluded; kanal očekivan a ne postoji -> missing_zero, s težinom stavke 1 za 'Kritično' i 0.5 za 'Preporučeno'. channel = null znači da se kriterij uvijek primjenjuje.",
+      "block_score": "Ponderisani prosjek item_value primjenjivih stavki u bloku (težina stavke 1, osim gore navedenog) x 100; blok se računa samo ako ima najmanje 2 scored stavke.",
+      "overall": "Ponderisani prosjek blokova koji se računaju (težine se renormalizuju na te blokove).",
+      "confidence": "Udio primjenjivih stavki koje su scored. Ispod 0.7 ili manje od 4 bloka: prikazati kao 'okvirna ocjena'."
+    },
+    "public_profile_fields": [
+      "Naziv firme",
+      "Grad",
+      "Link na web stranicu (ako postoji)",
+      "Google profil (pronađen po nazivu i gradu)",
+      "Facebook / Instagram linkovi (ako postoje)",
+      "Za svaki kanal: Imate li ga? / Treba li vam? (mapira se na Kritično / Nije relevantno)"
+    ],
+    "lead_qualification_fields": {
+      "note": "Ne ulaze u ocjenu; služe za prodajnu procjenu. Preuzeto iz profil_kompanije.",
+      "fields": [
+        "Veličina kompanije (mikro, mala, srednja, velika)",
+        "Geografsko tržište (lokalno, nacionalno, međunarodno)",
+        "Najvažniji cilj digitalnog nastupa",
+        "Glavni način dolaska novih klijenata"
+      ]
+    },
+    "open_issues": [
+      "Radne knjige 'drustvene_mreze' (DM) i 'ai_vidljivost' (AI) su nove i još nisu testirane na stvarnim firmama; DM djelimično preklapa TK-009 do TK-016, BI-009 do BI-014 i PK-005 do PK-008, a AI-011 preklapa REP-012.",
+      "Tek su web, Google Business i društvene radne knjige, AI-001 do AI-008 te 6 pojedinačnih kriterija označeni poljem 'channel'; ostali kriteriji koji zavise od weba (npr. SEO-001..004, REP-014..019, BI-017, BI-018) nisu.",
+      "Odlučiti kako novi radni knjizi ulaze u ukupnu ocjenu punog audita (posebno AI s 12 kriterija, kad se radne knjige ponderišu jednako)."
+    ]
+  }
 }
