@@ -28,6 +28,7 @@ test('creating a new company starts a draft full-audit assessment', function () 
     $assessment = $company->assessments()->firstOrFail();
     expect($assessment->mode)->toBe('full_audit');
     expect($assessment->status)->toBe('draft');
+    expect($assessment->methodology_version)->toBe('v2.1');
 
     $component->assertRedirect(route('audits.run', $assessment));
 });

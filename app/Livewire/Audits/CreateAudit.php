@@ -158,7 +158,7 @@ class CreateAudit extends Component
             }
 
             return $company->assessments()->create([
-                'methodology_version' => 'v2.0',
+                'methodology_version' => 'v2.1',
                 'mode' => 'full_audit',
                 'status' => 'draft',
                 'created_by' => Auth::id(),
