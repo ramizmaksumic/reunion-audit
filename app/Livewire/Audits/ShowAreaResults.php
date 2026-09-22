@@ -16,7 +16,7 @@ use Livewire\Component;
 
 /**
  * @property-read float $areaScore
- * @property-read Collection<int, array{workbook: Workbook, score: float, breakdown: Collection<int|string, Collection<int, array{criterion: Criterion, answer: ?AssessmentAnswer, applicable: bool, earned: float, max: float}>>}> $workbooks
+ * @property-read Collection<int, array{workbook: Workbook, applicable: bool, score: float, breakdown: Collection<int|string, Collection<int, array{criterion: Criterion, answer: ?AssessmentAnswer, applicable: bool, earned: float, max: float}>>}> $workbooks
  */
 #[Title('Detalji oblasti')]
 class ShowAreaResults extends Component
@@ -38,7 +38,7 @@ class ShowAreaResults extends Component
     }
 
     /**
-     * @return Collection<int, array{workbook: Workbook, score: float, breakdown: Collection<int|string, Collection<int, array{criterion: Criterion, answer: ?AssessmentAnswer, applicable: bool, earned: float, max: float}>>}>
+     * @return Collection<int, array{workbook: Workbook, applicable: bool, score: float, breakdown: Collection<int|string, Collection<int, array{criterion: Criterion, answer: ?AssessmentAnswer, applicable: bool, earned: float, max: float}>>}>
      */
     #[Computed]
     public function workbooks(): Collection
@@ -47,6 +47,10 @@ class ShowAreaResults extends Component
 
         return $this->area->workbooks()->with('criteria.options')->get()->map(fn (Workbook $workbook) => [
             'workbook' => $workbook,
+            // A workbook newer than this assessment's methodology (and never
+            // answered) is shown as "Nije popunjeno" rather than a 0% score —
+            // it's also excluded from areaScore()'s average for the same reason.
+            'applicable' => $scoring->isWorkbookApplicable($this->assessment, $workbook),
             'score' => $scoring->workbookScore($this->assessment, $workbook),
             'breakdown' => $scoring->criterionBreakdown($this->assessment, $workbook)->groupBy('criterion.group_label'),
         ]);
