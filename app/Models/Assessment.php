@@ -16,6 +16,8 @@ use Illuminate\Support\Str;
     'methodology_version',
     'mode',
     'quick_channel_relevance',
+    'lead_message',
+    'contact_requested_at',
     'status',
     'started_at',
     'completed_at',
@@ -41,6 +43,7 @@ class Assessment extends Model
             'started_at' => 'datetime',
             'completed_at' => 'datetime',
             'quick_channel_relevance' => 'array',
+            'contact_requested_at' => 'datetime',
         ];
     }
 
