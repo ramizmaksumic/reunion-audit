@@ -5,7 +5,9 @@ use App\Models\Assessment;
 use App\Models\Company;
 use App\Models\Criterion;
 use App\Models\User;
+use App\Notifications\QuickAuditContactRequested;
 use Database\Seeders\RdsMethodologySeeder;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
 beforeEach(function () {
@@ -78,6 +80,36 @@ test('submitting the contact form saves contact details on the company and marks
 
     expect($assessment->fresh()->contact_requested_at)->not->toBeNull()
         ->and($assessment->fresh()->lead_message)->toBe('Zanima me puni audit.');
+});
+
+test('submitting the contact form notifies every real staff account, but never the quick-audit system user', function () {
+    Notification::fake();
+
+    $staff = User::factory()->create();
+    $assessment = makeQuickScanAssessment();
+
+    Livewire::test(Results::class, ['assessment' => $assessment])
+        ->set('contactName', 'Ramiz')
+        ->set('contactEmail', 'ramiz@example.com')
+        ->call('submitContactRequest');
+
+    Notification::assertSentTo($staff, QuickAuditContactRequested::class);
+    Notification::assertNotSentTo(User::quickAuditSystemUser(), QuickAuditContactRequested::class);
+});
+
+test('a filled honeypot on the contact form sends no notification either', function () {
+    Notification::fake();
+
+    User::factory()->create();
+    $assessment = makeQuickScanAssessment();
+
+    Livewire::test(Results::class, ['assessment' => $assessment])
+        ->set('contactName', 'Bot')
+        ->set('contactEmail', 'bot@example.com')
+        ->set('website', 'https://spam.example')
+        ->call('submitContactRequest');
+
+    Notification::assertNothingSent();
 });
 
 test('a filled honeypot on the contact form no-ops without saving contact details', function () {

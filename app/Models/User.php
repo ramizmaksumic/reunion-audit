@@ -6,6 +6,7 @@ namespace App\Models;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -71,5 +72,19 @@ class User extends Authenticatable
             ['email' => 'quick-audit@system.internal'],
             ['name' => 'Brzi audit (sistem)', 'password' => Str::random(40)],
         );
+    }
+
+    /**
+     * Real staff accounts (agency team members with an actual login) —
+     * everyone except the non-loginable quickAuditSystemUser(). Used to
+     * decide who receives internal notifications (e.g. a new quick-audit
+     * lead) without hardcoding anyone's email: it automatically includes
+     * whoever the team registers next.
+     *
+     * @return Collection<int, self>
+     */
+    public static function staff(): Collection
+    {
+        return self::query()->where('email', '!=', 'quick-audit@system.internal')->get();
     }
 }

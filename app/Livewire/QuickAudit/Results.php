@@ -3,9 +3,13 @@
 namespace App\Livewire\QuickAudit;
 
 use App\Models\Assessment;
+use App\Models\User;
+use App\Notifications\QuickAuditContactRequested;
 use App\Services\QuickAuditScoringService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -98,6 +102,18 @@ class Results extends Component
             'lead_message' => $this->contactMessage ?: null,
             'contact_requested_at' => now(),
         ]);
+
+        // The lead's own data is already saved above regardless of what
+        // happens here — a mail server hiccup must never turn into a 500
+        // for the visitor. Staff can still see the lead in Filament.
+        try {
+            Notification::send(User::staff(), new QuickAuditContactRequested($this->assessment));
+        } catch (\Throwable $e) {
+            Log::error('Failed to send QuickAuditContactRequested notification', [
+                'assessment_id' => $this->assessment->id,
+                'exception' => $e->getMessage(),
+            ]);
+        }
 
         $this->contactSubmitted = true;
     }
