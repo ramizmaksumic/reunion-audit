@@ -163,6 +163,51 @@ test('scoreStatus maps scores to the 5 methodology tiers', function () {
     expect($scoring->scoreStatus(100.0)['label'])->toBe('Napredno');
 });
 
+test('isWorkbookApplicable is true for a workbook with no introduced_in_version, regardless of assessment version', function () {
+    $workbook = Workbook::factory()->create(['introduced_in_version' => null]);
+    $assessment = Assessment::factory()->create(['methodology_version' => 'v2.0']);
+
+    expect((new ScoringService)->isWorkbookApplicable($assessment, $workbook))->toBeTrue();
+});
+
+test('isWorkbookApplicable excludes a newer workbook from an older, unanswered assessment', function () {
+    $workbook = Workbook::factory()->create(['introduced_in_version' => 'v2.1']);
+    $assessment = Assessment::factory()->create(['methodology_version' => 'v2.0']);
+
+    expect((new ScoringService)->isWorkbookApplicable($assessment, $workbook))->toBeFalse();
+});
+
+test('isWorkbookApplicable includes a newer workbook once the assessment reaches its version', function () {
+    $workbook = Workbook::factory()->create(['introduced_in_version' => 'v2.1']);
+    $assessment = Assessment::factory()->create(['methodology_version' => 'v2.1']);
+
+    expect((new ScoringService)->isWorkbookApplicable($assessment, $workbook))->toBeTrue();
+});
+
+test('isWorkbookApplicable includes a newer workbook on an older assessment that was answered anyway', function () {
+    $workbook = Workbook::factory()->create(['introduced_in_version' => 'v2.1']);
+    $assessment = Assessment::factory()->create(['methodology_version' => 'v2.0']);
+    $criterion = makeBinaryCriterion($workbook, 'I. Grupa');
+
+    answerCriterion($assessment, $criterion, 'Da');
+
+    expect((new ScoringService)->isWorkbookApplicable($assessment, $workbook))->toBeTrue();
+});
+
+test('areaScore excludes a not-yet-applicable workbook from the weighted average entirely, rather than scoring it 0', function () {
+    $area = Area::factory()->create();
+    $assessment = Assessment::factory()->create(['methodology_version' => 'v2.0']);
+
+    $original = Workbook::factory()->for($area)->create(['weight' => 1, 'introduced_in_version' => null]);
+    $criterion = makeBinaryCriterion($original, 'I. Grupa');
+    answerCriterion($assessment, $criterion, 'Da'); // fully answered, scores 100
+
+    // Added later, unanswered on this older assessment — must not drag the average down.
+    Workbook::factory()->for($area)->create(['weight' => 1, 'introduced_in_version' => 'v2.1']);
+
+    expect((new ScoringService)->areaScore($assessment, $area))->toBe(100.0);
+});
+
 test('criterionBreakdown reports per-criterion earned/max and applicability', function () {
     $workbook = Workbook::factory()->create();
     $assessment = Assessment::factory()->create();

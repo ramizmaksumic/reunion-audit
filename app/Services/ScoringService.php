@@ -111,12 +111,48 @@ class ScoringService
     }
 
     /**
-     * Score of a main area (0-100): the weighted average of its workbooks'
-     * scores, weighted by each workbook's `weight` column.
+     * Whether $workbook should count toward $assessment's score. A workbook
+     * added to the methodology after the assessment's methodology_version
+     * is excluded — unless the assessment actually has an answer in it
+     * (e.g. an older, still in-progress assessment whose auditor went ahead
+     * and filled in the new workbook anyway; those answers must still
+     * count, not be silently dropped). This is what keeps a newly-seeded
+     * workbook from quietly pulling down the score of an assessment that
+     * predates it.
+     */
+    public function isWorkbookApplicable(Assessment $assessment, Workbook $workbook): bool
+    {
+        if ($workbook->introduced_in_version === null) {
+            return true;
+        }
+
+        $assessmentVersion = ltrim($assessment->methodology_version, 'v');
+        $workbookVersion = ltrim($workbook->introduced_in_version, 'v');
+
+        if (version_compare($assessmentVersion, $workbookVersion, '>=')) {
+            return true;
+        }
+
+        $criterionIds = $workbook->relationLoaded('criteria')
+            ? $workbook->criteria->pluck('id')
+            : $workbook->criteria()->pluck('id');
+
+        return $assessment->answers()->whereIn('criterion_id', $criterionIds)->exists();
+    }
+
+    /**
+     * Score of a main area (0-100): the weighted average of its applicable
+     * workbooks' scores, weighted by each workbook's `weight` column.
+     * Workbooks not yet applicable to this assessment (see
+     * isWorkbookApplicable()) are excluded entirely, not scored as 0 — that
+     * would silently drag down older assessments whenever the methodology
+     * grows a new workbook.
      */
     public function areaScore(Assessment $assessment, Area $area): float
     {
-        $workbooks = $area->workbooks;
+        $workbooks = $area->workbooks->filter(
+            fn (Workbook $workbook) => $this->isWorkbookApplicable($assessment, $workbook)
+        );
 
         $totalWeight = (float) $workbooks->sum('weight');
 
