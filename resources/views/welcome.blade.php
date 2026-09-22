@@ -7,18 +7,18 @@
 
 <body class="min-h-screen bg-white dark:bg-zinc-900">
     @php
-        // Illustrative mockup data for the hero/quiz preview cards below — not
-        // live data. Area names/colors come straight from AreaPresentation
-        // (the same source the real results dashboard uses), so the marketing
-        // page never invents categories that don't exist in the product.
-        $mockAreaScores = [
-            ['key' => 'digitalna_prisutnost', 'label' => 'Digitalna prisutnost', 'score' => 82, 'icon' => 'globe-alt'],
-            ['key' => 'korisnicko_iskustvo', 'label' => 'Korisničko iskustvo', 'score' => 74, 'icon' => 'cursor-arrow-rays'],
-            ['key' => 'digitalna_efikasnost', 'label' => 'Digitalna efikasnost', 'score' => 68, 'icon' => 'cog-6-tooth'],
-            ['key' => 'marketing_i_rast', 'label' => 'Marketing i rast', 'score' => 78, 'icon' => 'arrow-trending-up'],
-        ];
-        $heroScore = 76;
-        $quizPreviewScore = 68;
+    // Illustrative mockup data for the hero/quiz preview cards below — not
+    // live data. Area names/colors come straight from AreaPresentation
+    // (the same source the real results dashboard uses), so the marketing
+    // page never invents categories that don't exist in the product.
+    $mockAreaScores = [
+    ['key' => 'digitalna_prisutnost', 'label' => 'Digitalna prisutnost', 'score' => 82, 'icon' => 'globe-alt'],
+    ['key' => 'korisnicko_iskustvo', 'label' => 'Korisničko iskustvo', 'score' => 74, 'icon' => 'cursor-arrow-rays'],
+    ['key' => 'digitalna_efikasnost', 'label' => 'Digitalna efikasnost', 'score' => 68, 'icon' => 'cog-6-tooth'],
+    ['key' => 'marketing_i_rast', 'label' => 'Marketing i rast', 'score' => 78, 'icon' => 'arrow-trending-up'],
+    ];
+    $heroScore = 76;
+    $quizPreviewScore = 68;
     @endphp
 
     <x-site-header />
@@ -53,10 +53,10 @@
 
                     <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500 dark:text-zinc-400">
                         @foreach (['Brzo i jednostavno', 'Rezultati odmah', 'Bez obaveze'] as $point)
-                            <span class="inline-flex items-center gap-1.5">
-                                <flux:icon name="check-circle" variant="micro" class="text-emerald-500" />
-                                {{ $point }}
-                            </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <flux:icon name="check-circle" variant="micro" class="text-emerald-500" />
+                            {{ $point }}
+                        </span>
                         @endforeach
                     </div>
                 </div>
@@ -71,7 +71,7 @@
 
                     <div class="mt-6 flex flex-col gap-6 sm:flex-row sm:items-center">
                         <div class="relative flex size-28 shrink-0 items-center justify-center rounded-full"
-                             style="background: conic-gradient(#2563eb {{ $heroScore * 3.6 }}deg, var(--color-zinc-200) 0deg)">
+                            style="background: conic-gradient(#2563eb {{ $heroScore * 3.6 }}deg, var(--color-zinc-200) 0deg)">
                             <div class="absolute inset-2 flex flex-col items-center justify-center rounded-full bg-white dark:bg-zinc-800">
                                 <span class="text-2xl font-bold text-zinc-900 dark:text-white">{{ $heroScore }}</span>
                                 <span class="text-xs text-zinc-400">/100</span>
@@ -100,11 +100,11 @@
 
                     <div class="mt-6 grid grid-cols-2 gap-3 border-t border-zinc-100 pt-5 sm:grid-cols-4 dark:border-zinc-700">
                         @foreach ($mockAreaScores as $area)
-                            <div class="text-center">
-                                <flux:icon :name="$area['icon']" variant="micro" style="color: {{ \App\Services\AreaPresentation::color($area['key']) }}" class="mx-auto" />
-                                <div class="mt-1 text-lg font-bold text-zinc-900 dark:text-white">{{ $area['score'] }}</div>
-                                <div class="text-[11px] leading-tight text-zinc-400">{{ $area['label'] }}</div>
-                            </div>
+                        <div class="text-center">
+                            <flux:icon :name="$area['icon']" variant="micro" style="color: {{ \App\Services\AreaPresentation::color($area['key']) }}" class="mx-auto" />
+                            <div class="mt-1 text-lg font-bold text-zinc-900 dark:text-white">{{ $area['score'] }}</div>
+                            <div class="text-[11px] leading-tight text-zinc-400">{{ $area['label'] }}</div>
+                        </div>
                         @endforeach
                     </div>
                 </flux:card>
@@ -115,18 +115,18 @@
         <section class="border-y border-zinc-100 bg-zinc-50 py-16 dark:border-zinc-800 dark:bg-zinc-900/50">
             <div class="mx-auto grid max-w-7xl gap-10 px-6 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ([
-                    ['icon' => 'shield-check', 'title' => 'Objektivna procjena', 'text' => 'Mjerimo ono što je važno, bez pretpostavki.'],
-                    ['icon' => 'light-bulb', 'title' => 'Jasne preporuke', 'text' => 'Dobijate konkretne korake za unapređenje.'],
-                    ['icon' => 'clock', 'title' => 'Ušteda vremena', 'text' => 'Sve na jednom mjestu, jednostavno i pregledno.'],
-                    ['icon' => 'arrow-trending-up', 'title' => 'Stvarni rezultati', 'text' => 'Bolja vidljivost, više kupaca i efikasniji procesi.'],
+                ['icon' => 'shield-check', 'title' => 'Objektivna procjena', 'text' => 'Mjerimo ono što je važno, bez pretpostavki.'],
+                ['icon' => 'light-bulb', 'title' => 'Jasne preporuke', 'text' => 'Dobijate konkretne korake za unapređenje.'],
+                ['icon' => 'clock', 'title' => 'Ušteda vremena', 'text' => 'Sve na jednom mjestu, jednostavno i pregledno.'],
+                ['icon' => 'arrow-trending-up', 'title' => 'Stvarni rezultati', 'text' => 'Bolja vidljivost, više kupaca i efikasniji procesi.'],
                 ] as $feature)
-                    <div>
-                        <div class="inline-flex size-11 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/10">
-                            <flux:icon :name="$feature['icon']" variant="outline" class="size-5 text-blue-600 dark:text-blue-400" />
-                        </div>
-                        <flux:heading size="sm" class="mt-4">{{ $feature['title'] }}</flux:heading>
-                        <flux:text class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{{ $feature['text'] }}</flux:text>
+                <div>
+                    <div class="inline-flex size-11 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/10">
+                        <flux:icon :name="$feature['icon']" variant="outline" class="size-5 text-blue-600 dark:text-blue-400" />
                     </div>
+                    <flux:heading size="sm" class="mt-4">{{ $feature['title'] }}</flux:heading>
+                    <flux:text class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{{ $feature['text'] }}</flux:text>
+                </div>
                 @endforeach
             </div>
         </section>
@@ -170,14 +170,14 @@
 
                         <div class="mt-4 space-y-2 text-sm">
                             @foreach (['Da, jasno su istaknuti' => true, 'Djelimično' => false, 'Ne' => false, 'Nisam siguran/a' => false] as $option => $selected)
-                                <div class="flex items-center gap-2.5 rounded-lg border {{ $selected ? 'border-blue-600 bg-blue-50 dark:bg-blue-500/10' : 'border-zinc-200 dark:border-zinc-700' }} px-3 py-2">
-                                    <span class="flex size-4 shrink-0 items-center justify-center rounded-full border-2 {{ $selected ? 'border-blue-600' : 'border-zinc-300 dark:border-zinc-600' }}">
-                                        @if ($selected)
-                                            <span class="size-2 rounded-full bg-blue-600"></span>
-                                        @endif
-                                    </span>
-                                    {{ $option }}
-                                </div>
+                            <div class="flex items-center gap-2.5 rounded-lg border {{ $selected ? 'border-blue-600 bg-blue-50 dark:bg-blue-500/10' : 'border-zinc-200 dark:border-zinc-700' }} px-3 py-2">
+                                <span class="flex size-4 shrink-0 items-center justify-center rounded-full border-2 {{ $selected ? 'border-blue-600' : 'border-zinc-300 dark:border-zinc-600' }}">
+                                    @if ($selected)
+                                    <span class="size-2 rounded-full bg-blue-600"></span>
+                                    @endif
+                                </span>
+                                {{ $option }}
+                            </div>
                             @endforeach
                         </div>
                     </flux:card>
@@ -187,7 +187,7 @@
 
                         <div class="mt-3 flex items-center gap-4">
                             <div class="relative flex size-16 shrink-0 items-center justify-center rounded-full"
-                                 style="background: conic-gradient(#16a34a {{ $quizPreviewScore * 3.6 }}deg, var(--color-zinc-200) 0deg)">
+                                style="background: conic-gradient(#16a34a {{ $quizPreviewScore * 3.6 }}deg, var(--color-zinc-200) 0deg)">
                                 <div class="absolute inset-1.5 flex items-center justify-center rounded-full bg-white dark:bg-zinc-800">
                                     <span class="text-base font-bold text-zinc-900 dark:text-white">{{ $quizPreviewScore }}</span>
                                 </div>
@@ -226,11 +226,9 @@
                     </flux:text>
 
                     <div class="mt-7 flex flex-wrap gap-3">
-                        @if (Route::has('register'))
-                            <flux:button variant="primary" icon:trailing="arrow-right" :href="route('register')" wire:navigate>
-                                Saznajte više o punom auditu
-                            </flux:button>
-                        @endif
+                        <flux:button variant="primary" icon:trailing="arrow-right" href="mailto:{{ config('mail.from.address') }}">
+                            Saznajte više o punom auditu
+                        </flux:button>
                         <flux:button variant="ghost" icon="calendar" href="mailto:{{ config('mail.from.address') }}">
                             Zakažite 20-min sastanak
                         </flux:button>
@@ -240,16 +238,16 @@
                 <div class="grid gap-6 sm:grid-cols-2">
                     <ul class="space-y-3">
                         @foreach ([
-                            'Detaljna analiza po svim oblastima',
-                            'Personalizovane preporuke',
-                            'Prioriteti i akcioni plan',
-                            'PDF izvještaj spreman za implementaciju',
-                            'Podrška našeg tima',
+                        'Detaljna analiza po svim oblastima',
+                        'Personalizovane preporuke',
+                        'Prioriteti i akcioni plan',
+                        'PDF izvještaj spreman za implementaciju',
+                        'Podrška našeg tima',
                         ] as $item)
-                            <li class="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-300">
-                                <flux:icon name="check-circle" variant="micro" class="mt-0.5 shrink-0 text-emerald-500" />
-                                {{ $item }}
-                            </li>
+                        <li class="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-300">
+                            <flux:icon name="check-circle" variant="micro" class="mt-0.5 shrink-0 text-emerald-500" />
+                            {{ $item }}
+                        </li>
                         @endforeach
                     </ul>
 
@@ -273,17 +271,17 @@
 
                 <div class="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
                     @foreach ([
-                        ['icon' => 'home', 'label' => 'Turizam'],
-                        ['icon' => 'cake', 'label' => 'Ugostiteljstvo'],
-                        ['icon' => 'shopping-bag', 'label' => 'Trgovina'],
-                        ['icon' => 'cube', 'label' => 'Proizvodnja'],
-                        ['icon' => 'heart', 'label' => 'Zdravstvo'],
-                        ['icon' => 'building-office', 'label' => 'Usluge'],
+                    ['icon' => 'home', 'label' => 'Turizam'],
+                    ['icon' => 'cake', 'label' => 'Ugostiteljstvo'],
+                    ['icon' => 'shopping-bag', 'label' => 'Trgovina'],
+                    ['icon' => 'cube', 'label' => 'Proizvodnja'],
+                    ['icon' => 'heart', 'label' => 'Zdravstvo'],
+                    ['icon' => 'building-office', 'label' => 'Usluge'],
                     ] as $industry)
-                        <div class="flex flex-col items-center gap-2 text-center">
-                            <flux:icon :name="$industry['icon']" variant="outline" class="size-6 text-zinc-400" />
-                            <flux:text class="text-sm text-zinc-500 dark:text-zinc-400">{{ $industry['label'] }}</flux:text>
-                        </div>
+                    <div class="flex flex-col items-center gap-2 text-center">
+                        <flux:icon :name="$industry['icon']" variant="outline" class="size-6 text-zinc-400" />
+                        <flux:text class="text-sm text-zinc-500 dark:text-zinc-400">{{ $industry['label'] }}</flux:text>
+                    </div>
                     @endforeach
                 </div>
             </div>

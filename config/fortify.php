@@ -143,7 +143,9 @@ return [
     */
 
     'features' => [
-        Features::registration(),
+        // Registration closed: this is a single-tenant internal tool
+        // (see CLAUDE.md), not open signup. Re-add Features::registration()
+        // when/if a multi-tenant, multi-user phase happens.
         Features::resetPasswords(),
     ],
 
