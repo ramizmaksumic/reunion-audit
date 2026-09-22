@@ -51,14 +51,6 @@
             $total = $this->answerableCriteria->count();
             $current = $this->currentCriterion;
             $percent = $total > 0 ? (int) round((($this->currentIndex + 1) / $total) * 100) : 0;
-            $blockIcons = [
-                'pronalazljivost' => 'magnifying-glass',
-                'web' => 'computer-desktop',
-                'reputacija_povjerenje' => 'star',
-                'drustvene_mreze' => 'share',
-                'odziv_procesi' => 'chat-bubble-left-right',
-                'mjerenje_rast' => 'chart-bar',
-            ];
         @endphp
 
         @if ($current)
@@ -74,7 +66,7 @@
 
             <flux:card class="mt-6" wire:key="criterion-{{ $current->id }}">
                 <div class="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-                    <flux:icon :name="$blockIcons[$current->quick_block] ?? 'sparkles'" variant="micro" />
+                    <flux:icon :name="\App\Services\QuickAuditBlockPresentation::icon($current->quick_block)" variant="micro" />
                     {{ collect($this->blocks)->firstWhere('key', $current->quick_block)['name'] ?? $current->quick_block }}
                 </div>
 

@@ -6,6 +6,7 @@ use App\Models\Assessment;
 use App\Models\User;
 use App\Notifications\QuickAuditContactRequested;
 use App\Services\QuickAuditScoringService;
+use App\Services\ScoringService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
@@ -79,6 +80,30 @@ class Results extends Component
     public function blocks(): array
     {
         return QuickAuditScoringService::blocks();
+    }
+
+    /**
+     * Reuses the full audit's 5-tier status language (same
+     * ScoringService::scoreStatus() used on the main results page) so the
+     * two results pages read as one consistent product, not two different
+     * scoring vocabularies.
+     *
+     * @return array{label: string, description: string, color: string}
+     */
+    #[Computed]
+    public function status(): array
+    {
+        $score = $this->result['score'];
+
+        if ($score === null) {
+            return [
+                'label' => 'Nedovoljno podataka',
+                'description' => 'Odgovori nisu bili dovoljni da se izračuna okvirna ocjena.',
+                'color' => '#71717a',
+            ];
+        }
+
+        return app(ScoringService::class)->scoreStatus($score);
     }
 
     public function submitContactRequest(): void
