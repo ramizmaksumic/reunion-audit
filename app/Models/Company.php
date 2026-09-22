@@ -19,6 +19,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     'provides_online_services',
     'works_by_appointment',
     'has_multiple_locations',
+    'company_size',
+    'primary_goal',
+    'primary_acquisition_channel',
+    'contact_name',
+    'contact_email',
+    'contact_phone',
 ])]
 class Company extends Model
 {
@@ -42,6 +48,19 @@ class Company extends Model
         'regional' => 'Regionalno',
         'national' => 'Nacionalno',
         'international' => 'Međunarodno',
+    ];
+
+    /**
+     * Quick-audit lead-qualification field — "veličina kompanije" from the
+     * quick_audit methodology section. Not used by the full audit.
+     *
+     * @var array<string, string>
+     */
+    public const COMPANY_SIZE_LABELS = [
+        'micro' => 'Mikro (1–9 zaposlenih)',
+        'small' => 'Mala (10–49 zaposlenih)',
+        'medium' => 'Srednja (50–249 zaposlenih)',
+        'large' => 'Velika (250+ zaposlenih)',
     ];
 
     protected function casts(): array

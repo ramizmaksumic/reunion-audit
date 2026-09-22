@@ -56,4 +56,20 @@ class User extends Authenticatable
             ? Str::substr($initials, 0, 1).Str::substr($initials, -1)
             : $initials;
     }
+
+    /**
+     * The account `assessments.created_by` points to for anonymous
+     * quick-scan submissions (no visitor login exists to attribute them
+     * to). Not a real, usable login: password is random and never shared.
+     * Created lazily on first use rather than via a seeder, so it exists
+     * in every environment (including a fresh test database) without
+     * needing an extra seeding step.
+     */
+    public static function quickAuditSystemUser(): self
+    {
+        return self::firstOrCreate(
+            ['email' => 'quick-audit@system.internal'],
+            ['name' => 'Brzi audit (sistem)', 'password' => Str::random(40)],
+        );
+    }
 }
