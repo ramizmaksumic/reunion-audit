@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable([
     'name',
+    'website',
     'industry',
     'business_model_notes',
     'b2b_or_b2c',

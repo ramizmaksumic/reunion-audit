@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('companies', function (Blueprint $table) {
+            // From the quick_audit methodology's public_profile_fields
+            // ("Link na web stranicu"); also useful context on the full
+            // audit's company profile.
+            $table->string('website')->nullable()->after('name');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('companies', function (Blueprint $table) {
+            $table->dropColumn('website');
+        });
+    }
+};

@@ -42,12 +42,9 @@
                     </flux:text>
 
                     <div class="mt-8 flex flex-wrap gap-3">
-                        {{-- TODO: point to /brzi-audit once the quick-audit lead-gen flow ships. --}}
-                        @if (Route::has('register'))
-                            <flux:button variant="primary" icon:trailing="arrow-right" :href="route('register')" wire:navigate>
-                                Započni besplatno mjerenje
-                            </flux:button>
-                        @endif
+                        <flux:button variant="primary" icon:trailing="arrow-right" :href="route('quick-audit.start')" wire:navigate>
+                            Započni besplatno mjerenje
+                        </flux:button>
 
                         <flux:button variant="ghost" icon="calendar" href="mailto:{{ config('mail.from.address') }}">
                             Zakažite 20-min sastanak
@@ -150,12 +147,9 @@
                     </flux:text>
 
                     <div class="mt-7 flex flex-wrap items-center gap-4">
-                        {{-- TODO: point to /brzi-audit once the quick-audit lead-gen flow ships. --}}
-                        @if (Route::has('register'))
-                            <flux:button variant="primary" icon:trailing="arrow-right" :href="route('register')" wire:navigate>
-                                Započni brzo mjerenje
-                            </flux:button>
-                        @endif
+                        <flux:button variant="primary" icon:trailing="arrow-right" :href="route('quick-audit.start')" wire:navigate>
+                            Započni brzo mjerenje
+                        </flux:button>
                         <flux:text class="text-sm text-zinc-400">Potrebno samo 3–5 minuta</flux:text>
                     </div>
                 </div>
@@ -306,12 +300,9 @@
                 </div>
 
                 <div class="flex shrink-0 flex-wrap gap-3">
-                    {{-- TODO: point to /brzi-audit once the quick-audit lead-gen flow ships. --}}
-                    @if (Route::has('register'))
-                        <flux:button variant="primary" icon:trailing="arrow-right" :href="route('register')" wire:navigate>
-                            Započni audit
-                        </flux:button>
-                    @endif
+                    <flux:button variant="primary" icon:trailing="arrow-right" :href="route('quick-audit.start')" wire:navigate>
+                        Započni audit
+                    </flux:button>
                     <flux:button variant="ghost" icon="calendar" class="text-white hover:bg-white/10" href="mailto:{{ config('mail.from.address') }}">
                         Zakažite 20-min sastanak
                     </flux:button>

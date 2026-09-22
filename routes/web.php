@@ -11,3 +11,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/audits.php';
+require __DIR__.'/quick_audit.php';

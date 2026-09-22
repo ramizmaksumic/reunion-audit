@@ -47,11 +47,6 @@ class Assessment extends Model
         ];
     }
 
-    public function getRouteKeyName(): string
-    {
-        return request()->routeIs('quick-audit.*') ? 'public_token' : 'id';
-    }
-
     /**
      * @return BelongsTo<Company, $this>
      */
