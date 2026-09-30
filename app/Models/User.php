@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
 /**
  * @property int $id
@@ -28,7 +30,9 @@ use Illuminate\Support\Str;
  */
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
-class User extends Authenticatable
+
+
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
@@ -54,7 +58,7 @@ class User extends Authenticatable
         $initials = Str::initials($this->name, true);
 
         return Str::length($initials) > 1
-            ? Str::substr($initials, 0, 1).Str::substr($initials, -1)
+            ? Str::substr($initials, 0, 1) . Str::substr($initials, -1)
             : $initials;
     }
 
@@ -86,5 +90,10 @@ class User extends Authenticatable
     public static function staff(): Collection
     {
         return self::query()->where('email', '!=', 'quick-audit@system.internal')->get();
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->email !== 'quick-audit@system.internal';
     }
 }
