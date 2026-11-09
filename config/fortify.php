@@ -149,7 +149,7 @@ return [
         // Za dodavanje register rute dodati linju Features::registration()
 
         Features::resetPasswords(),
-        Features::registration(),
+
 
     ],
 
