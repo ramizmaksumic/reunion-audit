@@ -146,8 +146,11 @@ return [
         // Registration closed: this is a single-tenant internal tool
         // (see CLAUDE.md), not open signup. Re-add Features::registration()
         // when/if a multi-tenant, multi-user phase happens.
+        // Za dodavanje register rute dodati linju Features::registration()
 
         Features::resetPasswords(),
+        Features::registration(),
+
     ],
 
 ];
